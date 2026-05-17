@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b37dm2ix106iy"]
+
+[ext_resource type="Script" uid="uid://dllpnuhw84sgv" path="res://scripts/book_projectile.gd" id="1_yu7ga"]
+[ext_resource type="Texture2D" uid="uid://dr7ck6kck6kob" path="res://sprites/characters/Yume/book/tile1.png" id="2_t3doa"]
+[ext_resource type="Texture2D" uid="uid://ds8jslkiqwrsa" path="res://sprites/characters/Yume/book/tile2.png" id="3_yetww"]
+[ext_resource type="Texture2D" uid="uid://bg7b74wvd3i30" path="res://sprites/characters/Yume/book/tile3.png" id="4_a80pc"]
+[ext_resource type="Texture2D" uid="uid://b5civywymbfem" path="res://sprites/characters/Yume/book/tile4.png" id="5_fjslm"]
+[ext_resource type="Texture2D" uid="uid://bl7jmk1g15uy5" path="res://sprites/characters/Yume/book/tile5.png" id="6_16obn"]
+[ext_resource type="Texture2D" uid="uid://bovbhd8rvsqjm" path="res://sprites/characters/Yume/book/tile6.png" id="7_o5fn8"]
+[ext_resource type="Texture2D" uid="uid://denmms4ha2662" path="res://sprites/characters/Yume/book/tile7.png" id="8_ls113"]
+[ext_resource type="Texture2D" uid="uid://bf6wpeiq1u3t" path="res://sprites/characters/Yume/book/tile8.png" id="9_oyhj4"]
+[ext_resource type="Texture2D" uid="uid://dndy2flgjsy6w" path="res://sprites/characters/Yume/book/tile9.png" id="10_sdd14"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b3dwh"]
+animations = [{
+"frames": [{
+"duration": 4.4,
+"texture": ExtResource("2_t3doa")
+}, {
+"duration": 4.4,
+"texture": ExtResource("3_yetww")
+}, {
+"duration": 4.4,
+"texture": ExtResource("4_a80pc")
+}, {
+"duration": 4.4,
+"texture": ExtResource("5_fjslm")
+}, {
+"duration": 4.4,
+"texture": ExtResource("6_16obn")
+}, {
+"duration": 4.4,
+"texture": ExtResource("7_o5fn8")
+}, {
+"duration": 4.4,
+"texture": ExtResource("8_ls113")
+}, {
+"duration": 4.4,
+"texture": ExtResource("9_oyhj4")
+}, {
+"duration": 4.4,
+"texture": ExtResource("10_sdd14")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lutip"]
+radius = 19.104973
+
+[node name="BookProjectile" type="Area2D" unique_id=934798101]
+script = ExtResource("1_yu7ga")
+
+[node name="shoot" type="AnimatedSprite2D" parent="." unique_id=373837946]
+position = Vector2(1, -3.9999995)
+scale = Vector2(0.011263002, 0.010669387)
+sprite_frames = SubResource("SpriteFrames_b3dwh")
+autoplay = "default"
+frame_progress = 0.044116784
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=759446844]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_lutip")
