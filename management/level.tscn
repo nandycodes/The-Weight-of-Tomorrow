@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cbxwve1ptsk5y"]
+
+[ext_resource type="Script" uid="uid://cf0io5yp0sb5m" path="res://management/level.gd" id="1_w4i7q"]
+
+[node name="Level" type="Node2D" unique_id=1523152171 node_paths=PackedStringArray("_hud")]
+script = ExtResource("1_w4i7q")
+_hud = NodePath("HUD")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=175616185]

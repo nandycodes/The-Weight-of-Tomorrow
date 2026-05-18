@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://cx84hlyxaf17s"]
+
+[ext_resource type="Texture2D" uid="uid://cj0o3ewtiqyx2" path="res://dialog/assets/yumeFace.png" id="1_ewhij"]
+[ext_resource type="Script" uid="uid://ctoupyc3legt6" path="res://dialog/dialog_screen.gd" id="1_hh11h"]
+[ext_resource type="FontFile" uid="uid://bseik7opcbfve" path="res://fonts/PixelifySans-Regular.ttf" id="2_hh11h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_et6mj"]
+line_spacing = 0.0
+font = ExtResource("2_hh11h")
+shadow_color = Color(0, 0, 0, 0.6)
+
+[node name="DialogScreen" type="Control" unique_id=1217775192 node_paths=PackedStringArray("_name", "_dialog", "_faceset")]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -100.0
+offset_right = 160.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_hh11h")
+_name = NodePath("Background/HContainer/VContainer/Name")
+_dialog = NodePath("Background/HContainer/VContainer/Dialog")
+_faceset = NodePath("Background/HContainer/Border/Faceset")
+
+[node name="Background" type="ColorRect" parent="." unique_id=592856319]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="HContainer" type="HBoxContainer" parent="Background" unique_id=1071150649]
+custom_minimum_size = Vector2(312, 72)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -36.0
+offset_right = 156.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Border" type="ColorRect" parent="Background/HContainer" unique_id=1245131748]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="Faceset" type="TextureRect" parent="Background/HContainer/Border" unique_id=1175539303]
+custom_minimum_size = Vector2(70, 72)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -36.0
+offset_right = 35.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ewhij")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VContainer" type="VBoxContainer" parent="Background/HContainer" unique_id=587002446]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Background/HContainer/VContainer" unique_id=615224514]
+layout_mode = 2
+text = "Yume"
+label_settings = SubResource("LabelSettings_et6mj")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Dialog" type="RichTextLabel" parent="Background/HContainer/VContainer" unique_id=1642087082]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/normal_font = ExtResource("2_hh11h")
+theme_override_font_sizes/normal_font_size = 15
+text = "hhh"
