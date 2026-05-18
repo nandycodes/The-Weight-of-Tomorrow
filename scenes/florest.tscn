@@ -148,6 +148,7 @@
 [ext_resource type="PackedScene" uid="uid://b37dm2ix106iy" path="res://entities/book_projectile.tscn" id="144_nolii"]
 [ext_resource type="Texture2D" uid="uid://whmp68muiktm" path="res://sprites/backgrounds/tilessets/Tilesets/gate-1.png.png" id="146_nolii"]
 [ext_resource type="Script" uid="uid://bvuw3edt3hw0k" path="res://scripts/dialogue_trigger.gd" id="147_ar4gl"]
+[ext_resource type="Script" uid="uid://dn1yo6tfci3gs" path="res://scripts/kill_zone.gd" id="149_ua1k5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4geq8"]
 size = Vector2(635.5, 220)
@@ -2280,6 +2281,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nolii"]
 size = Vector2(98, 154)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fdl86"]
+distance = -0.51586056
+
 [node name="Florest" type="Node2D" unique_id=832750081]
 metadata/_edit_vertical_guides_ = [-1051.0]
 
@@ -2520,6 +2524,14 @@ position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_nolii")
 debug_color = Color(0.8155461, 0.3698712, 0.45858842, 0.41960785)
 
+[node name="KillZone" type="Area2D" parent="." unique_id=928573618]
+position = Vector2(968, 403)
+script = ExtResource("149_ua1k5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=1691335895]
+shape = SubResource("WorldBoundaryShape2D_fdl86")
+
 [connection signal="body_entered" from="GatilhoEscuridao" to="GatilhoEscuridao" method="_on_body_entered"]
 [connection signal="body_entered" from="Lever" to="Lever" method="_on_body_entered"]
 [connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_body_entered"]
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
