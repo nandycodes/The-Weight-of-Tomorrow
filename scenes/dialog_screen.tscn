@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://c3m31hjnegdom"]
+
+[ext_resource type="Texture2D" uid="uid://cj0o3ewtiqyx2" path="res://dialog/assets/yumeFace.png" id="2_8ryl4"]
+[ext_resource type="FontFile" uid="uid://bseik7opcbfve" path="res://fonts/PixelifySans-Regular.ttf" id="3_8kmho"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s4twl"]
+line_spacing = 0.0
+font = ExtResource("3_8kmho")
+shadow_color = Color(0, 0, 0, 0.6)
+
+[node name="DialogScreen" type="Control" unique_id=1866440993]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -100.0
+offset_right = 160.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
+
+[node name="Background" type="ColorRect" parent="." unique_id=418342968]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="HContainer" type="HBoxContainer" parent="Background" unique_id=1714327880]
+custom_minimum_size = Vector2(312, 72)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -36.0
+offset_right = 156.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Border" type="ColorRect" parent="Background/HContainer" unique_id=1509102180]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="Faceset" type="TextureRect" parent="Background/HContainer/Border" unique_id=896185631]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -36.0
+offset_right = 35.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.99086875)
+texture = ExtResource("2_8ryl4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VContainer" type="VBoxContainer" parent="Background/HContainer" unique_id=1675832303]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Background/HContainer/VContainer" unique_id=1044015430]
+layout_mode = 2
+text = "Yume"
+label_settings = SubResource("LabelSettings_s4twl")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Dialog" type="RichTextLabel" parent="Background/HContainer/VContainer" unique_id=458834600]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.70980394)
+theme_override_constants/line_separation = 0
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/normal_font = ExtResource("3_8kmho")
+theme_override_font_sizes/normal_font_size = 15
+text = "hhhh"

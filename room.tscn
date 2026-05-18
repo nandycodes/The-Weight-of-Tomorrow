@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://uooea8cp08jl"]
+
+[ext_resource type="Script" uid="uid://b42p53doweo6y" path="res://room.gd" id="1_x5k2b"]
+[ext_resource type="Texture2D" uid="uid://68in5yj8ufmv" path="res://sprites/backgrounds/Cenario_Quarto/cidade.png" id="2_x5k2b"]
+[ext_resource type="Shader" uid="uid://cpg3wva6op3ad" path="res://Shaders/monitor.gdshader" id="3_8cv3p"]
+[ext_resource type="Texture2D" uid="uid://duvj0o71lwrfj" path="res://sprites/backgrounds/Cenario_Quarto/monitor.png" id="4_01y1d"]
+[ext_resource type="Texture2D" uid="uid://x38lc08dcx85" path="res://sprites/backgrounds/Cenario_Quarto/quarto.png" id="5_42v8c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xorjj"]
+shader = ExtResource("3_8cv3p")
+shader_parameter/brilho = 1.22000005795
+
+[sub_resource type="Environment" id="Environment_xwbdb"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 3.15
+glow_bloom = 0.33
+glow_hdr_threshold = 2.12
+glow_hdr_scale = 2.5
+glow_hdr_luminance_cap = 174.13
+
+[node name="Room" type="Node2D" unique_id=575272322]
+scale = Vector2(1.015286, 0.99449193)
+script = ExtResource("1_x5k2b")
+
+[node name="Cidade" type="Sprite2D" parent="." unique_id=1685478849]
+position = Vector2(313.95926, 182.00247)
+scale = Vector2(0.51591766, 0.44274288)
+texture = ExtResource("2_x5k2b")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2027964782]
+position = Vector2(258, -8)
+amount = 120
+lifetime = 0.8
+preprocess = 1.03
+emission_shape = 3
+emission_rect_extents = Vector2(170, 0)
+gravity = Vector2(-300, 980)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+
+[node name="quarto" type="Sprite2D" parent="." unique_id=93159496]
+position = Vector2(315.1821, 187.03017)
+scale = Vector2(0.5167397, 0.44585204)
+texture = ExtResource("5_42v8c")
+
+[node name="Monitor" type="Sprite2D" parent="." unique_id=1092044043]
+material = SubResource("ShaderMaterial_xorjj")
+position = Vector2(185.16953, 184.01355)
+scale = Vector2(0.59552234, 0.48717946)
+texture = ExtResource("4_01y1d")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1287357610]
+environment = SubResource("Environment_xwbdb")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1749191953]
