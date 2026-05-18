@@ -146,6 +146,8 @@
 [ext_resource type="Texture2D" uid="uid://3xbs3osway5y" path="res://sprites/backgrounds/tilessets/Tilesets/lever_turned_left.png" id="143_a6jqt"]
 [ext_resource type="Texture2D" uid="uid://c7rmdxtfuld6u" path="res://sprites/backgrounds/tilessets/Tilesets/lever_turned_right.png" id="144_ar4gl"]
 [ext_resource type="Texture2D" uid="uid://whmp68muiktm" path="res://sprites/backgrounds/tilessets/Tilesets/gate-1.png.png" id="146_nolii"]
+[ext_resource type="Script" uid="uid://bvuw3edt3hw0k" path="res://scripts/dialogue_trigger.gd" id="147_ar4gl"]
+[ext_resource type="Script" uid="uid://dn1yo6tfci3gs" path="res://scripts/kill_zone.gd" id="149_ua1k5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4geq8"]
 size = Vector2(635.5, 220)
@@ -2227,6 +2229,12 @@ _data = {
 &"lever_on": SubResource("Animation_fdl86")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nolii"]
+size = Vector2(98, 154)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fdl86"]
+distance = -0.51586056
+
 [node name="Florest" type="Node2D" unique_id=832750081]
 metadata/_edit_vertical_guides_ = [-1051.0]
 
@@ -2432,5 +2440,24 @@ offset_bottom = 1.0
 theme_override_font_sizes/font_size = 13
 text = "Pressione E"
 
+[node name="DialogueTrigger" type="Area2D" parent="." unique_id=800988103]
+position = Vector2(2866, 228)
+script = ExtResource("147_ar4gl")
+lever_path = NodePath("../Lever")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueTrigger" unique_id=405371878]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_nolii")
+debug_color = Color(0.8155461, 0.3698712, 0.45858842, 0.41960785)
+
+[node name="KillZone" type="Area2D" parent="." unique_id=928573618]
+position = Vector2(968, 403)
+script = ExtResource("149_ua1k5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=1691335895]
+shape = SubResource("WorldBoundaryShape2D_fdl86")
+
 [connection signal="body_entered" from="GatilhoEscuridao" to="GatilhoEscuridao" method="_on_body_entered"]
 [connection signal="body_entered" from="Lever" to="Lever" method="_on_body_entered"]
+[connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_body_entered"]
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

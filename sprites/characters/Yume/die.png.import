@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blphjkm8spf58"
-path="res://.godot/imported/Idle.png-72eb335a948104ebd5a361c04c7a4fbc.ctex"
+uid="uid://bo2f6lb0co06e"
+path="res://.godot/imported/die.png-10a143e094e48ac440eeaa46f3e3420a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/characters/Yume/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-72eb335a948104ebd5a361c04c7a4fbc.ctex"]
+source_file="res://sprites/characters/Yume/die.png"
+dest_files=["res://.godot/imported/die.png-10a143e094e48ac440eeaa46f3e3420a.ctex"]
 
 [params]
 

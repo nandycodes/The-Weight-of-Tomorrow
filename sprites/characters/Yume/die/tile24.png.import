@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhim8dfnvqatm"
-path="res://.godot/imported/tentaviva.png-017d0d40e96166093e65f4a5384215f8.ctex"
+uid="uid://4onugp7nuinc"
+path="res://.godot/imported/tile24.png-1ad34d30eeb2b6b261dcdc7fd9246883.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/characters/Yume/tentaviva.png"
-dest_files=["res://.godot/imported/tentaviva.png-017d0d40e96166093e65f4a5384215f8.ctex"]
+source_file="res://sprites/characters/Yume/die/tile24.png"
+dest_files=["res://.godot/imported/tile24.png-1ad34d30eeb2b6b261dcdc7fd9246883.ctex"]
 
 [params]
 
