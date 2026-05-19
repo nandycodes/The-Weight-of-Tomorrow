@@ -12,14 +12,10 @@ var data: Dictionary = {}
 @export var _faceset: TextureRect = null
 
 func _ready() -> void:
-	# Apenas para testes: se o seu 'data' estiver vindo vazio de outra cena (como do quarto),
-	# você pode descomentar as linhas abaixo para testar o diálogo diretamente nesta cena.
-	# data = {
-	# 	0: {"title": "Yume", "dialog": "hhh", "faceset": "res://sprites/yume_face.png"}
-	# }
 	_initialize_dialog()
 
 func _process(_delta: float) -> void:
+	
 	# Se apertar Enter/Espaço enquanto o texto está surgindo, acelera a velocidade
 	if Input.is_action_pressed("ui_accept") and _dialog.visible_ratio < 1:
 		_step = 0.01
@@ -32,13 +28,20 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and _dialog.visible_ratio >= 1:
 		_id += 1
 		
-		# Se as falas acabaram, fecha a caixa de diálogo
+		# Se as falas acabaram
 		if _id >= data.size():
-			queue_free() # Remove a caixa da tela
+
+			# Remove a caixa de diálogo
+			queue_free()
+
+			# Vai para a floresta
+			get_tree().change_scene_to_file("res://scenes/florest.tscn")
+
 		else:
-			_initialize_dialog() # Carrega a próxima fala
+			_initialize_dialog()
 
 func _initialize_dialog() -> void:
+	
 	# Verifica se o dicionário data tem informações antes de tentar carregar
 	if data.is_empty():
 		return
@@ -51,5 +54,15 @@ func _initialize_dialog() -> void:
 	
 	# Efeito de digitar o texto letra por letra
 	while _dialog.visible_ratio < 1:
+
+		# Se o node foi removido da cena, para o loop
+		if !is_inside_tree():
+			return
+
 		await get_tree().create_timer(_step).timeout
+
+		# Verifica novamente após o await
+		if !is_inside_tree():
+			return
+
 		_dialog.visible_characters += 1

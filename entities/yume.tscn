@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dikbmon5b8acb" path="res://scripts/Yume.gd" id="1_m4o0s"]
 [ext_resource type="Texture2D" uid="uid://3x0iw4sbg641" path="res://sprites/characters/Yume/attack_bag/frame_000.png" id="2_7co6s"]
 [ext_resource type="Texture2D" uid="uid://b1x28omvlq855" path="res://sprites/characters/Yume/idle/frame_000.png" id="2_uspvl"]
+[ext_resource type="PackedScene" uid="uid://b37dm2ix106iy" path="res://entities/book_projectile.tscn" id="2_vwf41"]
 [ext_resource type="Texture2D" uid="uid://dqqwt5pqkadar" path="res://sprites/characters/Yume/idle/frame_001.png" id="3_3rt8w"]
 [ext_resource type="Texture2D" uid="uid://cxhqe3rc7avv3" path="res://sprites/characters/Yume/attack_bag/frame_001.png" id="3_7q2ls"]
 [ext_resource type="Texture2D" uid="uid://c58kl67cirwfa" path="res://sprites/characters/Yume/idle/frame_002.png" id="4_odvhr"]
@@ -609,6 +610,7 @@ animations = [{
 [node name="Yume" type="CharacterBody2D" unique_id=1334612167]
 texture_filter = 1
 script = ExtResource("1_m4o0s")
+projectile_scene = ExtResource("2_vwf41")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1334907853]
 position = Vector2(3, 5)

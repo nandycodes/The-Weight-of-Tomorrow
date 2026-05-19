@@ -25,15 +25,18 @@ var dialogue_data: Dictionary = {
 		"title": "Yume"
 	}
 }
-	
+
 func _ready() -> void:
-	# Espera um milissegundo para o cenário carregar os nós visuais primeiro
+
+	# Espera um frame para carregar os elementos da cena
 	await get_tree().process_frame
 	
 	if has_node("HUD"):
-		# Cria a caixinha dinamicamente dentro do seu HUD
+
+		# Cria a caixa de diálogo
 		var new_dialog = DIALOG_SCREEN.instantiate()
 		new_dialog.data = dialogue_data
 		$HUD.add_child(new_dialog)
+
 	else:
 		print("ERRO: O nó chamado HUD não foi encontrado na cena do quarto!")
