@@ -607,6 +607,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwf41"]
+size = Vector2(50, 60)
+
 [node name="Yume" type="CharacterBody2D" unique_id=1334612167]
 texture_filter = 1
 script = ExtResource("1_m4o0s")
@@ -621,11 +624,20 @@ debug_color = Color(0.99177855, 0.08838246, 0, 0.41960785)
 position = Vector2(-1.9968069, 0.18526042)
 scale = Vector2(0.11272944, 0.10752004)
 sprite_frames = SubResource("SpriteFrames_m4o0s")
-animation = &"die"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.1599286
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1373812325 groups=["camera"]]
 limit_left = -180
 limit_top = -3
 limit_right = 2948
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=422341894]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=301135149]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_vwf41")
+debug_color = Color(1.8289685e-06, 0.6466742, 0.23879766, 0.41960785)
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
