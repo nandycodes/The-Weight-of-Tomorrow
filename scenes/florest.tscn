@@ -149,6 +149,7 @@
 [ext_resource type="Script" uid="uid://bvuw3edt3hw0k" path="res://scripts/dialogue_trigger.gd" id="147_ar4gl"]
 [ext_resource type="PackedScene" uid="uid://cey7t5kh5qpdq" path="res://entities/zumbi.tscn" id="149_fdl86"]
 [ext_resource type="Script" uid="uid://dn1yo6tfci3gs" path="res://scripts/kill_zone.gd" id="149_ua1k5"]
+[ext_resource type="PackedScene" uid="uid://d1v3nxs2l5oro" path="res://entities/xícara.tscn" id="150_fdl86"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4geq8"]
 size = Vector2(635.5, 220)
@@ -2467,6 +2468,9 @@ shape = SubResource("WorldBoundaryShape2D_fdl86")
 
 [node name="Zumbi" parent="." unique_id=892923030 instance=ExtResource("149_fdl86")]
 position = Vector2(1711, 265)
+
+[node name="Xícara" parent="." unique_id=2069212043 instance=ExtResource("150_fdl86")]
+position = Vector2(720, 101)
 
 [connection signal="body_entered" from="GatilhoEscuridao" to="GatilhoEscuridao" method="_on_body_entered"]
 [connection signal="body_entered" from="Lever" to="Lever" method="_on_body_entered"]
