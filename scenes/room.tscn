@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://x38lc08dcx85" path="res://sprites/backgrounds/Cenario_Quarto/quarto.png" id="3_qvc4m"]
 [ext_resource type="Shader" uid="uid://cpg3wva6op3ad" path="res://Shaders/monitor.gdshader" id="4_7dqbv"]
 [ext_resource type="Texture2D" uid="uid://duvj0o71lwrfj" path="res://sprites/backgrounds/Cenario_Quarto/monitor.png" id="5_ybpoa"]
+[ext_resource type="PackedScene" uid="uid://c3m31hjnegdom" path="res://scenes/dialog_screen.tscn" id="6_jn645"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xorjj"]
 shader = ExtResource("4_7dqbv")
@@ -18,6 +19,42 @@ glow_bloom = 0.33
 glow_hdr_threshold = 2.12
 glow_hdr_scale = 2.5
 glow_hdr_luminance_cap = 174.13
+
+[sub_resource type="Animation" id="Animation_jn645"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qvc4m"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7dqbv"]
+_data = {
+&"RESET": SubResource("Animation_jn645"),
+&"fade_to_black": SubResource("Animation_qvc4m")
+}
 
 [node name="Room" type="Node2D" unique_id=575272322]
 scale = Vector2(1.015286, 0.99449193)
@@ -54,3 +91,20 @@ texture = ExtResource("5_ybpoa")
 environment = SubResource("Environment_xwbdb")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1749191953]
+
+[node name="ColorRect" type="ColorRect" parent="HUD" unique_id=704928789]
+modulate = Color(1, 1, 1, 0)
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 637.0
+offset_bottom = 368.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD" unique_id=1926288851]
+libraries/ = SubResource("AnimationLibrary_7dqbv")
+
+[node name="DialogScreen" parent="HUD" unique_id=1866440993 instance=ExtResource("6_jn645")]
+offset_left = -158.00002
+offset_top = -99.00003
+offset_right = 166.04657
+offset_bottom = -19.00003

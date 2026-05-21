@@ -17,6 +17,15 @@ var invulneravel = false
 
 func _physics_process(delta):
 
+	# TRAVA DE DIÁLOGO: Se a caixinha de texto existir na cena, ela fica parada e o código abaixo é ignorado
+	if get_tree().root.find_child("DialogScreen", true, false):
+		velocity.x = 0
+		if !is_on_floor():
+			velocity.y += GRAVITY * delta # Mantém a gravidade funcionando caso ela caia de algum lugar
+		move_and_slide()
+		anim.play("idle") # Força ela a ficar na animação de respirar/parada
+		return # Interrompe a função aqui para ela não ler os comandos do teclado
+
 	if esta_morta:
 		if !is_on_floor():
 			velocity.y += GRAVITY * delta
@@ -30,7 +39,7 @@ func _physics_process(delta):
 		velocity.y += GRAVITY * delta
 
 
-	#  ATAQUE
+	#   ATAQUE
 	
 	if Input.is_action_just_pressed("attackb") and !attacking:
 
