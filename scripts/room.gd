@@ -1,42 +1,24 @@
 extends Node2D
 
-# Carrega a cena da caixinha de diálogo na memória
-const DIALOG_SCREEN = preload("res://dialog/dialog_screen.tscn")
-
-var dialogue_data: Dictionary = {
-	0: {
-		"faceset": "res://dialog/assets/yumeFace.png",
-		"dialog": "Finalmente fechei os livros da faculdade. Minha cabeça está explodindo.",
-		"title": "Yume"
-	},
-	1: {
-		"faceset": "res://dialog/assets/yumeFace.png",
-		"dialog": "Coloquei esse filme de zumbi para relaxar, mas nem consigo prestar atenção.",
-		"title": "Yume"
-	},
-	2: {
-		"faceset": "res://dialog/assets/yumeFace.png",
-		"dialog": "As imagens só passam pela tela... Meus pensamentos continuam longe.",
-		"title": "Yume"
-	},
-	3: {
-		"faceset": "res://dialog/assets/yumeFace.png",
-		"dialog": "Só queria descansar sem sentir o peso do amanhã martelando na mente.",
-		"title": "Yume"
-	}
-}
+# Pega a referência do seu AnimationPlayer do HUD
+@onready var animation_player: AnimationPlayer = $HUD/AnimationPlayer
 
 func _ready() -> void:
-
-	# Espera um frame para carregar os elementos da cena
-	await get_tree().process_frame
+	# Garante que o quadrado preto comece totalmente invisível no início do jogo
+	$HUD/ColorRect.modulate.a = 0.0
 	
-	if has_node("HUD"):
+	# Conecta o sinal da sua caixinha de diálogo para saber quando ela terminar
+	if has_node("HUD/DialogScreen"):
+		$HUD/DialogScreen.dialogo_fechou.connect(_on_dialogo_terminou)
 
-		# Cria a caixa de diálogo
-		var new_dialog = DIALOG_SCREEN.instantiate()
-		new_dialog.data = dialogue_data
-		$HUD.add_child(new_dialog)
-
-	else:
-		print("ERRO: O nó chamado HUD não foi encontrado na cena do quarto!")
+func _on_dialogo_terminou() -> void:
+	# 1. Roda a animação para começar a escurecer a tela
+	animation_player.play("fade_to_black")
+	
+	# 2. Em vez de esperar o final da animação, espera apenas o tempo exato que você quiser!
+	# "get_tree().create_timer(1.1)" faz o jogo pausar por 1.1 segundos.
+	# Como sua animação dura 1.0 segundo, com 1.1 ela fica só um "piscar de olhos" no preto.
+	await get_tree().create_timer(1.1).timeout
+	 
+	# 3. Troca instantaneamente para a floresta
+	get_tree().change_scene_to_file("res://scenes/florest.tscn")
