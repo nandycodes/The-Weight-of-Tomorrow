@@ -138,7 +138,7 @@
 [ext_resource type="Texture2D" uid="uid://m1mcbc2cghl6" path="res://sprites/backgrounds/tilessets/Tilesets/watersheet/sprite_frames/frame_125.png" id="131_iaq20"]
 [ext_resource type="Texture2D" uid="uid://3gpw6eaupg11" path="res://sprites/backgrounds/tilessets/Tilesets/watersheet/sprite_frames/frame_126.png" id="132_t1821"]
 [ext_resource type="Texture2D" uid="uid://2ni1b62b23gu" path="res://sprites/backgrounds/tilessets/Tilesets/watersheet/sprite_frames/frame_127.png" id="133_4vg0r"]
-[ext_resource type="Shader" path="res://Shaders/water.gdshader" id="134_y247p"]
+[ext_resource type="Shader" uid="uid://hyvhg3mac4kh" path="res://Shaders/water.gdshader" id="134_y247p"]
 [ext_resource type="Texture2D" uid="uid://dunbxi647n5fl" path="res://sprites/backgrounds/tilessets/Tilesets/matos.png" id="135_4jdo3"]
 [ext_resource type="Texture2D" uid="uid://ch2wuh0ak2wx6" path="res://sprites/backgrounds/tilessets/Tilesets/BackgroundEraser_20260514_010549424.png" id="135_ds6bl"]
 [ext_resource type="Texture2D" uid="uid://i6orkkq87llj" path="res://sprites/backgrounds/tilessets/Tilesets/lamparina.png" id="138_x2wvv"]
@@ -149,8 +149,9 @@
 [ext_resource type="Texture2D" uid="uid://whmp68muiktm" path="res://sprites/backgrounds/tilessets/Tilesets/gate-1.png.png" id="146_nolii"]
 [ext_resource type="Script" uid="uid://bvuw3edt3hw0k" path="res://scripts/dialogue_trigger.gd" id="147_ar4gl"]
 [ext_resource type="PackedScene" uid="uid://cey7t5kh5qpdq" path="res://entities/zumbi.tscn" id="149_fdl86"]
-[ext_resource type="Script" path="res://scripts/kill_zone.gd" id="149_ua1k5"]
+[ext_resource type="Script" uid="uid://dn1yo6tfci3gs" path="res://scripts/kill_zone.gd" id="149_ua1k5"]
 [ext_resource type="PackedScene" uid="uid://c3m31hjnegdom" path="res://scenes/dialog_screen.tscn" id="151_e4btn"]
+[ext_resource type="PackedScene" uid="uid://d1v3nxs2l5oro" path="res://entities/xícara.tscn" id="152_e4btn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4geq8"]
 size = Vector2(635.5, 220)
@@ -2478,6 +2479,9 @@ offset_left = -187.0
 offset_top = -109.0
 offset_right = 133.0
 offset_bottom = -29.0
+
+[node name="Xícara" parent="." unique_id=2069212043 instance=ExtResource("152_e4btn")]
+position = Vector2(369, 259)
 
 [connection signal="body_entered" from="GatilhoEscuridao" to="GatilhoEscuridao" method="_on_body_entered"]
 [connection signal="body_entered" from="Lever" to="Lever" method="_on_body_entered"]
