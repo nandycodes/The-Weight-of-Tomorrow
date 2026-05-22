@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c3n4jhdx4tfea"]
+
+[ext_resource type="PackedScene" uid="uid://bs1sxitju24dx" path="res://entities/yume.tscn" id="1_6d5gx"]
+
+[node name="cemetery" type="Node2D" unique_id=377910219]
+
+[node name="Yume" parent="." unique_id=1334612167 instance=ExtResource("1_6d5gx")]
+position = Vector2(4, -3)
+
+[node name="Camera2D2" type="Camera2D" parent="Yume" unique_id=1629937109]
+position = Vector2(24, -182)
+
+[node name="tiles" type="Node2D" parent="." unique_id=2021525463]
+position = Vector2(76, 82)
+
+[node name="terrain" type="TileMapLayer" parent="tiles" unique_id=42491724]
+
+[node name="decoration" type="TileMapLayer" parent="tiles" unique_id=679140556]
