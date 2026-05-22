@@ -114,7 +114,7 @@
 [ext_resource type="Texture2D" uid="uid://slom713jgx37" path="res://sprites/characters/Xícara/Jump/jump25.png" id="112_uj8as"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3tfwb"]
-size = Vector2(34, 21)
+size = Vector2(34, 44)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_28enk"]
 animations = [{
@@ -199,79 +199,79 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("27_c38rv")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("28_ru0x4")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("29_ntef6")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("30_0jsrm")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("31_oubu1")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("32_u85hp")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("33_ojibu")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("34_7f21k")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("35_wc5tr")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("36_4f4fo")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("37_c7u6w")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("38_qjn2b")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("39_upta4")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("40_wxtlj")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("41_tc6ad")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("42_s7sva")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("43_2k7cm")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("44_a3m2s")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("45_3x67n")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("46_wodws")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("47_or7oo")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("48_0uex2")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("49_0aqro")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("50_o3qsa")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": ExtResource("51_1dpqc")
 }],
 "loop": false,
@@ -472,17 +472,29 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adwl2"]
+size = Vector2(737, 51)
+
 [node name="Xícara" type="CharacterBody2D" unique_id=2069212043]
 script = ExtResource("1_fi0j3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1833232003]
-position = Vector2(0, 5.5)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_3tfwb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2023777377]
 position = Vector2(0.9999993, 0)
 scale = Vector2(0.44531253, 0.53125)
 sprite_frames = SubResource("SpriteFrames_28enk")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.7373289
+animation = &"jump"
+autoplay = "jump"
+frame_progress = 0.43242538
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1868377747]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=48022850]
+position = Vector2(3.5, 8)
+shape = SubResource("RectangleShape2D_adwl2")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

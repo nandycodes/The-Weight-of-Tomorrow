@@ -148,7 +148,6 @@
 [ext_resource type="Texture2D" uid="uid://c7rmdxtfuld6u" path="res://sprites/backgrounds/tilessets/Tilesets/lever_turned_right.png" id="144_ar4gl"]
 [ext_resource type="Texture2D" uid="uid://whmp68muiktm" path="res://sprites/backgrounds/tilessets/Tilesets/gate-1.png.png" id="146_nolii"]
 [ext_resource type="Script" uid="uid://bvuw3edt3hw0k" path="res://scripts/dialogue_trigger.gd" id="147_ar4gl"]
-[ext_resource type="PackedScene" uid="uid://cey7t5kh5qpdq" path="res://entities/zumbi.tscn" id="149_fdl86"]
 [ext_resource type="Script" uid="uid://dn1yo6tfci3gs" path="res://scripts/kill_zone.gd" id="149_ua1k5"]
 [ext_resource type="PackedScene" uid="uid://c3m31hjnegdom" path="res://scenes/dialog_screen.tscn" id="151_e4btn"]
 [ext_resource type="PackedScene" uid="uid://d1v3nxs2l5oro" path="res://entities/xícara.tscn" id="152_e4btn"]
@@ -2469,9 +2468,6 @@ script = ExtResource("149_ua1k5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=1691335895]
 shape = SubResource("WorldBoundaryShape2D_fdl86")
 
-[node name="Zumbi" parent="." unique_id=892923030 instance=ExtResource("149_fdl86")]
-position = Vector2(1711, 265)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=675205842]
 
 [node name="DialogScreen" parent="CanvasLayer" unique_id=1866440993 instance=ExtResource("151_e4btn")]
@@ -2481,7 +2477,7 @@ offset_right = 133.0
 offset_bottom = -29.0
 
 [node name="Xícara" parent="." unique_id=2069212043 instance=ExtResource("152_e4btn")]
-position = Vector2(369, 259)
+position = Vector2(1529, 271)
 
 [connection signal="body_entered" from="GatilhoEscuridao" to="GatilhoEscuridao" method="_on_body_entered"]
 [connection signal="body_entered" from="Lever" to="Lever" method="_on_body_entered"]
