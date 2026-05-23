@@ -149,7 +149,7 @@
 [ext_resource type="Texture2D" uid="uid://c7rmdxtfuld6u" path="res://sprites/backgrounds/tilessets/Tilesets/lever_turned_right.png" id="144_ar4gl"]
 [ext_resource type="Texture2D" uid="uid://whmp68muiktm" path="res://sprites/backgrounds/tilessets/Tilesets/gate-1.png.png" id="146_nolii"]
 [ext_resource type="Script" uid="uid://bvuw3edt3hw0k" path="res://scripts/dialogue_trigger.gd" id="147_ar4gl"]
-[ext_resource type="Script" uid="uid://dn1yo6tfci3gs" path="res://scripts/kill_zone.gd" id="149_ua1k5"]
+[ext_resource type="Script" path="res://scripts/kill_zone.gd" id="149_ua1k5"]
 [ext_resource type="PackedScene" uid="uid://c3m31hjnegdom" path="res://scenes/dialog_screen.tscn" id="151_e4btn"]
 [ext_resource type="PackedScene" uid="uid://d1v3nxs2l5oro" path="res://entities/xícara.tscn" id="152_e4btn"]
 [ext_resource type="PackedScene" uid="uid://s0l85u8jv1f5" path="res://entities/coffee.tscn" id="153_lekvo"]
@@ -2306,14 +2306,14 @@ disabled = true
 position = Vector2(2, -2)
 sprite_frames = SubResource("SpriteFrames_3s5hp")
 autoplay = "default"
-frame_progress = 0.98321694
+frame_progress = 0.87119436
 
 [node name="ColorRect" type="ColorRect" parent="water" unique_id=141892238]
 material = SubResource("ShaderMaterial_x2wvv")
-offset_left = 1990.0
-offset_top = 315.0
-offset_right = 2622.0
-offset_bottom = 533.0
+offset_left = 1993.0
+offset_top = 313.0
+offset_right = 2625.0
+offset_bottom = 531.0
 color = Color(9.62615e-07, 0.38879508, 0.59880865, 1)
 
 [node name="Gate" type="StaticBody2D" parent="." unique_id=1797376716]
@@ -2384,7 +2384,7 @@ energy = 16.0
 blend_mode = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="light" unique_id=2052378829]
-position = Vector2(386, 295)
+position = Vector2(400, 198)
 scale = Vector2(6.2812505, 5.0859375)
 color = Color(0.99515265, 0.9774154, 0.41021112, 1)
 texture = SubResource("GradientTexture2D_x8ash")
