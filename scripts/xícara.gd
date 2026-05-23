@@ -2,113 +2,122 @@ extends CharacterBody2D
 
 const SPEED = 50
 const GRAVITY = 900
-const ATTACK_DISTANCE = 40
+const ATTACK_DISTANCE = 200 
 
 @onready var anim = $AnimatedSprite2D
+@onready var shoot_point = $ShootPoint # Referência ao ponto de tiro
+
+const COFFEE_PROJECTILE = preload("res://entities/coffee_projectile.tscn")
 
 var player = null
 var attacking = false
 var health = 3
 var dead = false
 
-
 func _physics_process(delta):
-
+	# 1. Verifica se morreu
 	if dead:
 		return
-
+		
+	# 2. Aplica a gravidade
 	if !is_on_floor():
 		velocity.y += GRAVITY * delta
 
-	# Se a Yume não estiver por perto
+	# 3. Se a Yume NÃO estiver por perto, fica parada
 	if player == null:
 		velocity.x = 0
 		if !attacking:
-			anim.play("idle") # Usa a animação da pasta 'Idle'
+			anim.play("idle")
 		move_and_slide()
 		return
 
+	# 4. Se a Yume ESTIVER por perto, calculamos a distância
 	var direction = player.global_position.x - global_position.x
-	var distance = abs(direction)
+	var distance = global_position.distance_to(player.global_position)
 
-	# Inverte o sprite baseado na direção da Yume
-	anim.flip_h = direction < 0
-
+	# --- NOVO CÓDIGO DE VIRA-VIRA ---
+	# Se a Yume estiver na esquerda
+	if direction < 0:
+		anim.flip_h = true
+		# Joga o ShootPoint para a esquerda (transforma o número em negativo)
+		shoot_point.position.x = -abs(shoot_point.position.x)
+	# Se a Yume estiver na direita
+	else:
+		anim.flip_h = false
+		# Joga o ShootPoint para a direita (garante que o número é positivo)
+		shoot_point.position.x = abs(shoot_point.position.x)
+	# --------------------------------
+	
+	# 5. Lógica de andar e atirar
 	if !attacking:
 		if distance > ATTACK_DISTANCE:
+			# Anda na direção do player
 			velocity.x = sign(direction) * SPEED
-			# AJUSTE AQUI: Mudado de "walk" para "jump" porque a Xícara se move pulando!
-			# Se você preferir criar uma animação de andar normal, mude aqui para o nome dela.
-			anim.play("jump") 
-
+			anim.play("jump")
 		else:
+			# Para de andar e atira
 			velocity.x = 0
 			attack()
-
+			
 	move_and_slide()
 
-
-# ATAQUE
-
 func attack():
-	if dead:
+	if dead or attacking:
 		return
-
+		
 	attacking = true
-	# Garanta que exista uma animação chamada "attack" no AnimatedSprite2D da Xícara
 	anim.play("attack")
-
+	
+	
 	await get_tree().create_timer(0.4).timeout
-
-	if player != null and player.has_method("take_damage") and !player.esta_morta:
-		player.take_damage()
-
+	
+	if dead: return 
+	
+	shoot() 
+	
 	await anim.animation_finished
 	attacking = false
 
+func shoot():
+	if player == null:
+		return
+		
+	
+	var projectile = COFFEE_PROJECTILE.instantiate()
+	
+	
+	get_parent().add_child(projectile)
+	
+	
+	projectile.global_position = shoot_point.global_position
+	
+	
+	var direction_to_player = (player.global_position - shoot_point.global_position).normalized()
+	
 
-# DETECÇÃO (Lembre-se de conectar os sinais da Area2D da Xícara aqui!)
-
-func _on_area_2d_body_entered(body):
-	if body.name == "Yume":
-		player = body
-
-func _on_area_2d_body_exited(body):
-	if body.name == "Yume":
-		player = null
-
-
-# DANO
+	projectile.direction = direction_to_player
 
 func take_damage():
 	if dead:
 		return
-
 	health -= 1
 	print("Xícara tomou dano:", health)
-
 	if health <= 0:
 		die()
-
 
 func die():
 	if dead:
 		return
-
 	dead = true
 	velocity = Vector2.ZERO
-
-	anim.play("die") # Usa os frames da pasta 'Die'
+	anim.play("die")
 	await anim.animation_finished
-
 	queue_free()
 
-
-@warning_ignore("unused_parameter")
 func _on_detection_area_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body.name == "Yume":
+		player = body
 
-
-@warning_ignore("unused_parameter")
 func _on_detection_area_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body.name == "Yume":
+		player = null

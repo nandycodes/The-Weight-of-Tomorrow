@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://s0l85u8jv1f5"]
+
+[ext_resource type="Script" uid="uid://xiuiaajcy67d" path="res://scripts/coffee.gd" id="1_26hbt"]
+[ext_resource type="Texture2D" uid="uid://h36v3ndxaja5" path="res://sprites/items/coffee/11.png" id="1_iodsw"]
+[ext_resource type="Texture2D" uid="uid://bebhvvs1ni0ie" path="res://sprites/items/coffee/12.png" id="2_26hbt"]
+[ext_resource type="Texture2D" uid="uid://cmvcqre8q8f4c" path="res://sprites/items/coffee/13.png" id="3_c5wtt"]
+[ext_resource type="Texture2D" uid="uid://chaoefja6ytrd" path="res://sprites/items/coffee/14.png" id="4_ikudr"]
+[ext_resource type="Texture2D" uid="uid://cf1knbuwk58dq" path="res://sprites/items/coffee/15.png" id="5_7ppw8"]
+[ext_resource type="Texture2D" uid="uid://e6p7m8ji76bs" path="res://sprites/items/coffee/16.png" id="6_u3uwa"]
+[ext_resource type="Texture2D" uid="uid://dpv4jy1v4ga8p" path="res://sprites/items/coffee/17.png" id="7_8m8vn"]
+[ext_resource type="Texture2D" uid="uid://c0xnhxyva6gr2" path="res://sprites/items/coffee/18.png" id="8_7qak0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8xpa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_iodsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_26hbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c5wtt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ikudr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7ppw8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u3uwa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8m8vn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7qak0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4cbir"]
+radius = 20.0
+
+[node name="Coffee" type="Area2D" unique_id=992595506]
+script = ExtResource("1_26hbt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1778787349]
+sprite_frames = SubResource("SpriteFrames_r8xpa")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.69767165
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=727338729]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_4cbir")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -2,8 +2,9 @@ extends Node2D
 class_name Level
 
 # Verifique se o caminho abaixo está correto no seu computador!
-const _DIALOG_SCREEN: PackedScene = preload("res://dialog/dialog_screen.tscn")
+const _DIALOG_SCREEN: PackedScene = preload("res://scenes/dialog_screen.tscn")
 
+@warning_ignore("unused_private_class_variable")
 var _dialog_data: Dictionary = {
 	0: {
 		"faceset": "res://dialog/assets/yumeFace.png",
