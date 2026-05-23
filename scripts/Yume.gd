@@ -14,17 +14,19 @@ var esta_morta = false
 var health = 5
 var invulneravel = false
 
+# --- ADICIONADO AQUI ---
+var livros = 5 # Quantidade inicial de livros que a Yume começar
+
 
 func _physics_process(delta):
 
-	# TRAVA DE DIÁLOGO: Se a caixinha de texto existir na cena, ela fica parada e o código abaixo é ignorado
 	if get_tree().root.find_child("DialogScreen", true, false):
 		velocity.x = 0
 		if !is_on_floor():
 			velocity.y += GRAVITY * delta # Mantém a gravidade funcionando caso ela caia de algum lugar
 		move_and_slide()
-		anim.play("idle") # Força ela a ficar na animação de respirar/parada
-		return # Interrompe a função aqui para ela não ler os comandos do teclado
+		anim.play("idle") 
+		return 
 
 	if esta_morta:
 		if !is_on_floor():
@@ -73,11 +75,14 @@ func _physics_process(delta):
 		attacking = false
 
 
-	# TIRO
+	# TIRO 
 	
-	if Input.is_action_just_pressed("shoot") and !attacking:
+	
+	if Input.is_action_just_pressed("shoot") and !attacking and livros > 0:
 
 		attacking = true
+		livros -= 1 # --- GASTA 1 LIVRO AQUI ---
+		
 		anim.play("attack_book")
 
 		await get_tree().create_timer(0.50).timeout

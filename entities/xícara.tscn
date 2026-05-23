@@ -1,31 +1,14 @@
 [gd_scene format=3 uid="uid://d1v3nxs2l5oro"]
 
 [ext_resource type="Script" uid="uid://bywvuf6r4eq5a" path="res://scripts/xícara.gd" id="1_fi0j3"]
-[ext_resource type="Texture2D" uid="uid://si5vccynfwju" path="res://sprites/characters/Xícara/Attack/attack1.png" id="2_adwl2"]
-[ext_resource type="Texture2D" uid="uid://cdio4ho24qpeq" path="res://sprites/characters/Xícara/Attack/attack2.png" id="3_sgmjp"]
-[ext_resource type="Texture2D" uid="uid://dg17hsi3ihm0v" path="res://sprites/characters/Xícara/Attack/attack3.png" id="4_l0iv1"]
-[ext_resource type="Texture2D" uid="uid://cjbqromrprx24" path="res://sprites/characters/Xícara/Attack/attack4.png" id="5_br43g"]
-[ext_resource type="Texture2D" uid="uid://c2ym364igw18p" path="res://sprites/characters/Xícara/Attack/attack5.png" id="6_b6tym"]
-[ext_resource type="Texture2D" uid="uid://cckt2l77jbwvv" path="res://sprites/characters/Xícara/Attack/attack6.png" id="7_i23ep"]
-[ext_resource type="Texture2D" uid="uid://cg67fmbn8di6a" path="res://sprites/characters/Xícara/Attack/attack7.png" id="8_q5wbn"]
-[ext_resource type="Texture2D" uid="uid://b32b8vdgdjpji" path="res://sprites/characters/Xícara/Attack/attack8.png" id="9_54whd"]
-[ext_resource type="Texture2D" uid="uid://ipghqn6b2iv0" path="res://sprites/characters/Xícara/Attack/attack9.png" id="10_jmsqu"]
-[ext_resource type="Texture2D" uid="uid://d1ljb6gp384mv" path="res://sprites/characters/Xícara/Attack/attack10.png" id="11_jkijm"]
-[ext_resource type="Texture2D" uid="uid://f7xus721t0ed" path="res://sprites/characters/Xícara/Attack/attack11.png" id="12_1yiiy"]
-[ext_resource type="Texture2D" uid="uid://b2f6xa55sslj6" path="res://sprites/characters/Xícara/Attack/attack12.png" id="13_r78j7"]
-[ext_resource type="Texture2D" uid="uid://7a2e2ny7bxls" path="res://sprites/characters/Xícara/Attack/attack13.png" id="14_6jrx1"]
-[ext_resource type="Texture2D" uid="uid://cshfui4i16duf" path="res://sprites/characters/Xícara/Attack/attack14.png" id="15_v6c4r"]
-[ext_resource type="Texture2D" uid="uid://b8sdtc3rn63pw" path="res://sprites/characters/Xícara/Attack/attack15.png" id="16_mp886"]
-[ext_resource type="Texture2D" uid="uid://c5a2ahguqm7kb" path="res://sprites/characters/Xícara/Attack/attack16.png" id="17_j1hp0"]
-[ext_resource type="Texture2D" uid="uid://cce4hawngc10m" path="res://sprites/characters/Xícara/Attack/attack17.png" id="18_oo0x3"]
-[ext_resource type="Texture2D" uid="uid://b8icai0pe4cql" path="res://sprites/characters/Xícara/Attack/attack18.png" id="19_v154s"]
-[ext_resource type="Texture2D" uid="uid://c4padwhvt1doa" path="res://sprites/characters/Xícara/Attack/attack19.png" id="20_ejbcf"]
-[ext_resource type="Texture2D" uid="uid://wu720mu61nkq" path="res://sprites/characters/Xícara/Attack/attack20.png" id="21_20u8a"]
-[ext_resource type="Texture2D" uid="uid://duplcovp4k5tm" path="res://sprites/characters/Xícara/Attack/attack21.png" id="22_keae1"]
-[ext_resource type="Texture2D" uid="uid://u8dx84htmqvb" path="res://sprites/characters/Xícara/Attack/attack22.png" id="23_fo60h"]
-[ext_resource type="Texture2D" uid="uid://ds868hvdbq8ch" path="res://sprites/characters/Xícara/Attack/attack23.png" id="24_ipfs1"]
-[ext_resource type="Texture2D" uid="uid://cwsguvl6krqvx" path="res://sprites/characters/Xícara/Attack/attack24.png" id="25_kiyo3"]
-[ext_resource type="Texture2D" uid="uid://op52p6ii7qkw" path="res://sprites/characters/Xícara/Attack/attack25.png" id="26_31m47"]
+[ext_resource type="Texture2D" uid="uid://dpm65wia0j8h3" path="res://sprites/characters/Xícara/Attack/attack1.png" id="2_adwl2"]
+[ext_resource type="Texture2D" uid="uid://nix3uwqagtuq" path="res://sprites/characters/Xícara/Attack/attack2.png" id="3_sgmjp"]
+[ext_resource type="Texture2D" uid="uid://bjmgc6rhg346" path="res://sprites/characters/Xícara/Attack/attack3.png" id="4_l0iv1"]
+[ext_resource type="Texture2D" uid="uid://ca30e6rubkukp" path="res://sprites/characters/Xícara/Attack/attack4.png" id="5_br43g"]
+[ext_resource type="Texture2D" uid="uid://dflcxvny5ncab" path="res://sprites/characters/Xícara/Attack/attack5.png" id="6_b6tym"]
+[ext_resource type="Texture2D" uid="uid://wdj6k5uod2em" path="res://sprites/characters/Xícara/Attack/attack6.png" id="7_i23ep"]
+[ext_resource type="Texture2D" uid="uid://b2bynufuh2vt0" path="res://sprites/characters/Xícara/Attack/attack7.png" id="8_q5wbn"]
+[ext_resource type="Texture2D" uid="uid://drh8ef0uimg6m" path="res://sprites/characters/Xícara/Attack/attack8.png" id="9_54whd"]
 [ext_resource type="Texture2D" uid="uid://yqr62d5tmbyl" path="res://sprites/characters/Xícara/Die/die1.png" id="27_c38rv"]
 [ext_resource type="Texture2D" uid="uid://bxgq307yk65b7" path="res://sprites/characters/Xícara/Die/die2.png" id="28_ru0x4"]
 [ext_resource type="Texture2D" uid="uid://dvx57wap3dyg2" path="res://sprites/characters/Xícara/Die/die3.png" id="29_ntef6"]
@@ -142,136 +125,85 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_54whd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_jmsqu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_jkijm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_1yiiy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_r78j7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_6jrx1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_v6c4r")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_mp886")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_j1hp0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_oo0x3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_v154s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_ejbcf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_20u8a")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_keae1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_fo60h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_ipfs1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_kiyo3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_31m47")
 }],
 "loop": false,
 "name": &"attack",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("27_c38rv")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("28_ru0x4")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("29_ntef6")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("30_0jsrm")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("31_oubu1")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("32_u85hp")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("33_ojibu")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("34_7f21k")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("35_wc5tr")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("36_4f4fo")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("37_c7u6w")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("38_qjn2b")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("39_upta4")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("40_wxtlj")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("41_tc6ad")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("42_s7sva")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("43_2k7cm")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("44_a3m2s")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("45_3x67n")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("46_wodws")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("47_or7oo")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("48_0uex2")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("49_0aqro")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("50_o3qsa")
 }, {
-"duration": 0.1,
+"duration": 0.01,
 "texture": ExtResource("51_1dpqc")
 }],
 "loop": false,
@@ -473,7 +405,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adwl2"]
-size = Vector2(737, 51)
+size = Vector2(737, 344.5)
 
 [node name="Xícara" type="CharacterBody2D" unique_id=2069212043]
 script = ExtResource("1_fi0j3")
@@ -486,15 +418,19 @@ shape = SubResource("RectangleShape2D_3tfwb")
 position = Vector2(0.9999993, 0)
 scale = Vector2(0.44531253, 0.53125)
 sprite_frames = SubResource("SpriteFrames_28enk")
-animation = &"jump"
+animation = &"attack"
 autoplay = "jump"
-frame_progress = 0.43242538
+frame = 7
+frame_progress = 1.0
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=1868377747]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=48022850]
-position = Vector2(3.5, 8)
+position = Vector2(3.5, -138.75)
 shape = SubResource("RectangleShape2D_adwl2")
+
+[node name="ShootPoint" type="Marker2D" parent="." unique_id=1058122058]
+position = Vector2(36, 16)
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

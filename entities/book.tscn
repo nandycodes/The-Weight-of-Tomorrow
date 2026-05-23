@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cr4i4v8jy3ahg"]
+
+[ext_resource type="Script" uid="uid://ck5y11r570v2c" path="res://scripts/book.gd" id="1_5euhw"]
+[ext_resource type="Texture2D" uid="uid://2b3em6dn405s" path="res://sprites/items/book/11.png" id="1_ebx5b"]
+[ext_resource type="Texture2D" uid="uid://dre52sd1f5j88" path="res://sprites/items/book/12.png" id="2_5euhw"]
+[ext_resource type="Texture2D" uid="uid://d4aykvxdogikt" path="res://sprites/items/book/13.png" id="3_xvqj0"]
+[ext_resource type="Texture2D" uid="uid://cnn7a0cy8mgql" path="res://sprites/items/book/14.png" id="4_t7tsu"]
+[ext_resource type="Texture2D" uid="uid://dpvuaeca011cw" path="res://sprites/items/book/15.png" id="5_2unda"]
+[ext_resource type="Texture2D" uid="uid://djj5636n7fmss" path="res://sprites/items/book/16.png" id="6_kbggs"]
+[ext_resource type="Texture2D" uid="uid://m5ss8xx7t2lq" path="res://sprites/items/book/17.png" id="7_vgl6d"]
+[ext_resource type="Texture2D" uid="uid://c655eptu1my10" path="res://sprites/items/book/18.png" id="8_fpfa7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wh6gs"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_ebx5b")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_5euhw")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_xvqj0")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_t7tsu")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_2unda")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_kbggs")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_vgl6d")
+}, {
+"duration": 2.0,
+"texture": ExtResource("8_fpfa7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5vokr"]
+radius = 16.0
+
+[node name="Book" type="Area2D" unique_id=1250068929]
+script = ExtResource("1_5euhw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1327758494]
+scale = Vector2(0.85294116, 0.85294116)
+sprite_frames = SubResource("SpriteFrames_wh6gs")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.4150869
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=2079382071]
+shape = SubResource("CircleShape2D_5vokr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

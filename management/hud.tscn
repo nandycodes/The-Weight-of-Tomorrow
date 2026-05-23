@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dkynerbi1kql8"]
+
+[ext_resource type="Texture2D" uid="uid://md4lvklko6g4" path="res://sprites/backgrounds/tilessets/remove the effects of spinning-16px.png" id="1_l1gwt"]
+[ext_resource type="Script" uid="uid://d0s5c7eapm51t" path="res://management/lifebar.gd" id="1_puo7q"]
+[ext_resource type="FontFile" uid="uid://bseik7opcbfve" path="res://fonts/PixelifySans-Regular.ttf" id="2_j6l2e"]
+[ext_resource type="Texture2D" uid="uid://c4gd6pmuiswr1" path="res://sprites/backgrounds/tilessets/1.png" id="3_5oi3w"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5oi3w"]
+
+[sub_resource type="Gradient" id="Gradient_puo7q"]
+offsets = PackedFloat32Array(0, 0.352459, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.4262295, 0.4262295, 0.4262295, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pleks"]
+gradient = SubResource("Gradient_puo7q")
+fill_from = Vector2(0.36021507, 1)
+fill_to = Vector2(0.36021507, 0)
+metadata/_snap_count = 2
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_j6l2e"]
+frame_0/texture = ExtResource("1_l1gwt")
+
+[node name="HUD" type="CanvasLayer" unique_id=157454320]
+
+[node name="Lifebar" type="TextureProgressBar" parent="." unique_id=300956695]
+offset_left = 46.000004
+offset_top = 28.0
+offset_right = 110.0
+offset_bottom = 92.0
+scale = Vector2(1.45, 0.22)
+step = 0.0
+value = 100.0
+texture_under = SubResource("GradientTexture2D_5oi3w")
+texture_progress = SubResource("GradientTexture2D_pleks")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(0.8352941, 0, 0.18431373, 1)
+script = ExtResource("1_puo7q")
+
+[node name="Control" type="Control" parent="." unique_id=1162093212]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 49.01
+offset_top = 62.955
+offset_right = 49.01001
+offset_bottom = 62.955017
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.09, 1.09)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1811664195]
+layout_mode = 0
+offset_left = -21.11009
+offset_top = -4.545873
+offset_right = 27.88991
+offset_bottom = 35.45413
+
+[node name="Books_container" type="HBoxContainer" parent="Control/MarginContainer" unique_id=684067704]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Books_icon" type="TextureRect" parent="Control/MarginContainer/Books_container" unique_id=58135249]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AnimatedTexture_j6l2e")
+
+[node name="Labelbooks" type="Label" parent="Control/MarginContainer/Books_container" unique_id=921835553]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_j6l2e")
+theme_override_font_sizes/font_size = 12
+text = "0000"
+
+[node name="Control2" type="Control" parent="." unique_id=235261963]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Life_counter" type="HBoxContainer" parent="Control2" unique_id=343553881]
+layout_mode = 0
+offset_left = -8.000002
+offset_top = -25.0
+offset_right = 329.0
+offset_bottom = 195.0
+scale = Vector2(0.555, 0.555)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control2/Life_counter" unique_id=1314659915]
+layout_mode = 2
+texture = ExtResource("3_5oi3w")
