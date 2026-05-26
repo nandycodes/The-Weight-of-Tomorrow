@@ -14,22 +14,20 @@ var esta_morta = false
 var health = 5
 var invulneravel = false
 
-# --- LIVROS ---
-var livros = 5 # Quantidade inicial de livros que a Yume começa
+# --- ADICIONADO AQUI ---
+var livros = 5 # Quantidade inicial de livros que a Yume começar
 
 
 func _physics_process(delta):
 
-	# Sistema de Diálogo: Trava a Yume se a tela de diálogo estiver ativa
-	if get_tree().root.find_child("DialogScreen", true, true):
+	if get_tree().root.find_child("DialogScreen", true, false):
 		velocity.x = 0
 		if !is_on_floor():
-			velocity.y += GRAVITY * delta 
+			velocity.y += GRAVITY * delta # Mantém a gravidade funcionando caso ela caia de algum lugar
 		move_and_slide()
 		anim.play("idle") 
 		return 
 
-	# Se estiver morta, impede movimentos normais
 	if esta_morta:
 		if !is_on_floor():
 			velocity.y += GRAVITY * delta
@@ -39,12 +37,11 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 
-	# Aplica gravidade normal
 	if !is_on_floor():
 		velocity.y += GRAVITY * delta
 
 
-	# --- ATAQUE COMPLETO ---
+	#   ATAQUE
 	
 	if Input.is_action_just_pressed("attackb") and !attacking:
 
@@ -67,6 +64,7 @@ func _physics_process(delta):
 					var dir = sign(body.global_position.x - global_position.x)
 					body.apply_knockback(dir)
 
+				
 				get_tree().paused = true
 				await get_tree().create_timer(0.05, false, false, true).timeout
 				get_tree().paused = false
@@ -77,12 +75,13 @@ func _physics_process(delta):
 		attacking = false
 
 
-	# --- TIRO DE LIVRO ---
+	# TIRO 
+	
 	
 	if Input.is_action_just_pressed("shoot") and !attacking and livros > 0:
 
 		attacking = true
-		livros -= 1 
+		livros -= 1 # --- GASTA 1 LIVRO AQUI ---
 		
 		anim.play("attack_book")
 
@@ -107,7 +106,7 @@ func _physics_process(delta):
 		return
 
 
-	# --- MOVIMENTO E PULO ---
+	# MOVIMENTO
 	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_FORCE
@@ -121,11 +120,9 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-	# Altera o lado do sprite baseado na direção
 	if direction != 0:
 		anim.flip_h = direction < 0
 
-	# Controla as animações de locomoção
 	if !is_on_floor():
 		anim.play("jump")
 	elif direction != 0:
@@ -134,8 +131,7 @@ func _physics_process(delta):
 		anim.play("idle")
 
 
-# --- FUNÇÃO DE MORTE ---
-# Chamada quando a vida zera ou quando ela cai na água (water2)
+# MORTE
 
 func morrer():
 
@@ -144,20 +140,16 @@ func morrer():
 
 	esta_morta = true
 	invulneravel = true
-	
-	# Zera a velocidade para o lado, mas dá uma pequena queda (bom para o efeito de afundar)
-	velocity.x = 0
-	velocity.y = 200 
+	velocity = Vector2.ZERO
 
-	anim.play("die") # Toca a animação dela morrendo
+	anim.play("die")
 
 	await anim.animation_finished
 
-	# Dá o restart na fase atual
 	get_tree().reload_current_scene()
 
 
-# --- RECEBER DANO ---
+# DANO
 
 func take_damage():
 
@@ -169,19 +161,20 @@ func take_damage():
 
 	print("yume tomou dano:", health)
 
-	modulate.a = 0.5 # Deixa a Yume transparente (efeito de piscada de dano)
+	modulate.a = 0.5
 
 	if health <= 0:
 		morrer()
 		return
 
+
 	await get_tree().create_timer(1.0, false, false, true).timeout
 
-	modulate.a = 1.0 # Volta a opacidade normal
+	modulate.a = 1.0
 	invulneravel = false
 
 
-# --- FALLBACK DE SINAL ---
+# FALLBACK
 
 func _on_attack_area_body_entered(body):
 	

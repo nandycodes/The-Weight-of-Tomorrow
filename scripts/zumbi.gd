@@ -107,10 +107,6 @@ func die():
 	dead = true
 	velocity = Vector2.ZERO
 
-	# AVISO DIRETO: Fala para o cemitério que ele morreu e a alavanca deve aparecer
-	if get_parent() and get_parent().has_method("liberar_alavanca"):
-		get_parent().liberar_alavanca()
-
 	anim.play("die")
 	await anim.animation_finished
 

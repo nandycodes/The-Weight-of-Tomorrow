@@ -139,7 +139,7 @@
 [ext_resource type="Texture2D" uid="uid://ddyn1ro7x4u2h" path="res://sprites/characters/Zumbi/walk/sprite36.png" id="109_ggc56"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_667vi"]
-size = Vector2(46.807495, 65.5)
+size = Vector2(40, 65.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_57teo"]
 animations = [{
@@ -579,7 +579,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rct5v"]
-size = Vector2(429.95807, 83.20792)
+size = Vector2(563, 82)
 
 [node name="Zumbi" type="CharacterBody2D" unique_id=892923030]
 texture_filter = 1
@@ -595,9 +595,10 @@ texture_filter = 1
 position = Vector2(-1, -0.5083083)
 scale = Vector2(0.49, 0.46935856)
 sprite_frames = SubResource("SpriteFrames_57teo")
-animation = &"idle"
+animation = &"die"
 autoplay = "idle"
-frame_progress = 0.7196523
+frame = 35
+frame_progress = 1.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1964628409]
 

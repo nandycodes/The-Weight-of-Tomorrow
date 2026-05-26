@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkl66ngcsn20y"
-path="res://.godot/imported/pixilart-sprite_-_Kopi.png-4c9cbb727a3f95d60cd99e7c189ea496.ctex"
+uid="uid://bvl6e2k1jm0ic"
+path="res://.godot/imported/portaoabert.png-92ea19d076af08aaab899d025aed7207.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/backgrounds/background_cemetery/pixilart-sprite_-_Kopi.png"
-dest_files=["res://.godot/imported/pixilart-sprite_-_Kopi.png-4c9cbb727a3f95d60cd99e7c189ea496.ctex"]
+source_file="res://sprites/backgrounds/background_cemetery/portaoabert.png"
+dest_files=["res://.godot/imported/portaoabert.png-92ea19d076af08aaab899d025aed7207.ctex"]
 
 [params]
 
