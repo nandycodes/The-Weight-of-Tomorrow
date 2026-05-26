@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://c3n4jhdx4tfea"]
 
 [ext_resource type="PackedScene" uid="uid://bs1sxitju24dx" path="res://entities/yume.tscn" id="1_6d5gx"]
+[ext_resource type="Script" uid="uid://rq08ou4crjfy" path="res://scenes/cemetery.gd" id="1_e8gx0"]
 [ext_resource type="Texture2D" uid="uid://b8kbrpb5d8jwa" path="res://sprites/backgrounds/background_cemetery/free.png" id="2_m1ouv"]
 [ext_resource type="Script" uid="uid://b66yo746um8gf" path="res://scenes/parallax_background.gd" id="3_7hdpc"]
 [ext_resource type="Texture2D" uid="uid://c41scdqjw2jex" path="res://sprites/backgrounds/background_cemetery/ceu.png" id="3_jrpro"]
@@ -141,11 +142,8 @@
 [ext_resource type="Texture2D" uid="uid://bh7o83rcuxgtr" path="res://sprites/backgrounds/background_cemetery/cripta-open.png" id="137_pryt6"]
 [ext_resource type="PackedScene" uid="uid://cey7t5kh5qpdq" path="res://entities/zumbi.tscn" id="138_0pmin"]
 [ext_resource type="Texture2D" uid="uid://dglm3tygydes5" path="res://sprites/backgrounds/background_cemetery/portao.png" id="141_sxm1n"]
-[ext_resource type="Texture2D" uid="uid://behr40hbfv6kx" path="res://sprites/backgrounds/background_cemetery/portaoabert-1.png.png" id="142_73ryw"]
 [ext_resource type="Script" uid="uid://bo2x1hge07rov" path="res://scenes/portao.gd" id="142_rs4pu"]
-[ext_resource type="Script" uid="uid://cucpx2qbpobpl" path="res://scripts/lever.gd" id="143_rs4pu"]
-[ext_resource type="Texture2D" uid="uid://3xbs3osway5y" path="res://sprites/backgrounds/tilessets/Tilesets/lever_turned_left.png" id="144_73ryw"]
-[ext_resource type="Texture2D" uid="uid://c7rmdxtfuld6u" path="res://sprites/backgrounds/tilessets/Tilesets/lever_turned_right.png" id="145_5hyv3"]
+[ext_resource type="Texture2D" uid="uid://doceo8w1rkgg4" path="res://sprites/backgrounds/background_cemetery/AlavancaFechada_Kopi.png" id="144_73ryw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jrpro"]
 texture = ExtResource("2_m1ouv")
@@ -238,7 +236,6 @@ sources/1 = SubResource("TileSetAtlasSource_jrpro")
 
 [sub_resource type="Animation" id="Animation_cm521"]
 length = 0.001
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -259,7 +256,7 @@ loop_mode = 1
 
 [sub_resource type="Animation" id="Animation_0xdbh"]
 resource_name = "mover"
-length = 10.5
+length = 9.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -268,10 +265,10 @@ tracks/0/path = NodePath("../AnimatableBody2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 6.0666666, 10.5),
+"times": PackedFloat32Array(0, 4.0333333, 9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1200, 0), Vector2(500, 0), Vector2(1200, 0)]
+"values": [Vector2(1100, 0), Vector2(1800, 0), Vector2(1100, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8k8cm"]
@@ -302,6 +299,9 @@ size = Vector2(96, 18)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rs4pu"]
 size = Vector2(96.125, 18)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73ryw"]
+size = Vector2(340, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pryt6"]
 size = Vector2(285, 31)
 
@@ -309,7 +309,7 @@ size = Vector2(285, 31)
 size = Vector2(159, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pmin"]
-size = Vector2(39, 14)
+size = Vector2(44, 14)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q8qfn"]
 animations = [{
@@ -792,53 +792,17 @@ _data = {
 &"open_cripta": SubResource("Animation_h1lq5")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hyv3"]
+size = Vector2(155, 24)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b622o"]
-size = Vector2(169, 141)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_b622o"]
-radius = 34.0
-
-[sub_resource type="Animation" id="Animation_ua1k5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("144_73ryw")]
-}
-
-[sub_resource type="Animation" id="Animation_fdl86"]
-resource_name = "lever_on"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("144_73ryw"), ExtResource("145_5hyv3")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4gga2"]
-_data = {
-&"RESET": SubResource("Animation_ua1k5"),
-&"lever_on": SubResource("Animation_fdl86")
-}
+size = Vector2(150, 82)
 
 [node name="Cemetery" type="Node2D" unique_id=377910219]
+script = ExtResource("1_e8gx0")
 
 [node name="Yume" parent="." unique_id=1334612167 instance=ExtResource("1_6d5gx")]
-z_index = 3
+z_index = 2
 position = Vector2(-162, 240)
 
 [node name="Camera2D" parent="Yume" index="2" unique_id=1373812325]
@@ -860,7 +824,7 @@ motion_mirroring = Vector2(1152, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=807501664]
 modulate = Color(0.0253638, 0.0253638, 0.025363795, 1)
-position = Vector2(1166, -19)
+position = Vector2(1107, -29)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_jrpro")
 
@@ -898,6 +862,7 @@ libraries/ = SubResource("AnimationLibrary_8k8cm")
 autoplay = &"mover"
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1801687024]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1901763780]
 position = Vector2(785, 232)
@@ -928,6 +893,7 @@ position = Vector2(3484, 286)
 shape = SubResource("RectangleShape2D_q1u81")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1225753317]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=301296360]
 position = Vector2(1649, 233)
@@ -949,7 +915,12 @@ shape = SubResource("RectangleShape2D_e8gx0")
 position = Vector2(3008.9375, 104)
 shape = SubResource("RectangleShape2D_rs4pu")
 
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D2" unique_id=99510425]
+position = Vector2(2409, 239)
+shape = SubResource("RectangleShape2D_73ryw")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=398808535]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1379308765]
 visible = false
@@ -960,17 +931,18 @@ shape = SubResource("RectangleShape2D_pryt6")
 position = Vector2(600, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=1591991878]
-position = Vector2(1398, 236)
+position = Vector2(814.0647, 239)
 texture = ExtResource("2_m1ouv")
 region_enabled = true
 region_rect = Rect2(152.31, -0.34061527, 166.06763, 64.99054)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=788348180]
-position = Vector2(1405, 229)
+visible = false
+position = Vector2(817.7666, 233)
 shape = SubResource("RectangleShape2D_2eg25")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1830110065]
-position = Vector2(1387.5, 210)
+position = Vector2(803.2666, 213)
 shape = SubResource("RectangleShape2D_0pmin")
 
 [node name="water" type="Node2D" parent="." unique_id=1309640633]
@@ -1112,22 +1084,15 @@ region_enabled = true
 region_rect = Rect2(104.471634, 137.39166, 56.348663, 64.61313)
 
 [node name="Sprite2D17" type="Sprite2D" parent="tiles2/Sprite2D12/Sprite2D13" unique_id=1809676642]
-position = Vector2(-1511.9974, 18.172728)
-scale = Vector2(0.9462959, 0.7415045)
+position = Vector2(-1241.3313, 9.007409)
+scale = Vector2(0.9462959, 0.7354307)
 texture = ExtResource("2_m1ouv")
 region_enabled = true
 region_rect = Rect2(29.000275, 205.00024, 40.00003, 52.00006)
 
 [node name="Sprite2D3" type="Sprite2D" parent="tiles2/Sprite2D12/Sprite2D13/Sprite2D17" unique_id=793497463]
-position = Vector2(1358.9022, -30.901318)
+position = Vector2(1353.9708, -19.338638)
 scale = Vector2(1.008039, 1.2087963)
-texture = ExtResource("2_m1ouv")
-region_enabled = true
-region_rect = Rect2(101.96722, 64.49662, 55.31846, 65.479)
-
-[node name="Sprite2D4" type="Sprite2D" parent="tiles2/Sprite2D12/Sprite2D13/Sprite2D17" unique_id=1615326037]
-position = Vector2(1799.6115, -37.471375)
-scale = Vector2(1.041999, 1.3716072)
 texture = ExtResource("2_m1ouv")
 region_enabled = true
 region_rect = Rect2(101.96722, 64.49662, 55.31846, 65.479)
@@ -1189,7 +1154,7 @@ script = ExtResource("137_h1lq5")
 
 [node name="Sprite2D" type="Sprite2D" parent="cripta" unique_id=192910353]
 z_index = 2
-position = Vector2(3065, 30)
+position = Vector2(3059, 30.499998)
 scale = Vector2(1.9008981, 1.6495727)
 texture = ExtResource("137_2eg25")
 
@@ -1198,15 +1163,23 @@ libraries/ = SubResource("AnimationLibrary_sxm1n")
 autoplay = &"open_cripta"
 
 [node name="Zumbi" parent="cripta" unique_id=892923030 instance=ExtResource("138_0pmin")]
+visible = false
 z_index = 1
 position = Vector2(3061, 75)
 scale = Vector2(1.4954953, 1.2948718)
 
 [node name="CollisionShape2D" parent="cripta/Zumbi" index="0" unique_id=1637262213]
-position = Vector2(1.3371582, 0.25)
+position = Vector2(2.3706055, 0.25)
 
 [node name="CollisionShape2D" parent="cripta/Zumbi/Area2D" parent_id_path=PackedInt32Array(892923030, 1964628409) index="0" unique_id=40977876]
-position = Vector2(4.680691, -8.495048)
+position = Vector2(8.023926, -8.999985)
+
+[node name="gatilhocripta" type="Area2D" parent="cripta" unique_id=1034314788]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cripta/gatilhocripta" unique_id=1325558088]
+visible = false
+position = Vector2(2881.5, 132)
+shape = SubResource("RectangleShape2D_5hyv3")
 
 [node name="Timer" type="Timer" parent="cripta" unique_id=702578974]
 wait_time = 10.0
@@ -1215,51 +1188,24 @@ one_shot = true
 [node name="portao" type="StaticBody2D" parent="." unique_id=2097982492]
 script = ExtResource("142_rs4pu")
 
-[node name="SpriteAberto" type="Sprite2D" parent="portao" unique_id=1796542289]
-visible = false
-texture_filter = 1
-position = Vector2(4113, 181.50002)
-scale = Vector2(1.1796409, 2.186813)
-texture = ExtResource("142_73ryw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="portao" unique_id=2042839962]
-visible = false
-z_index = 1
-position = Vector2(4116.5, 170.5)
-shape = SubResource("RectangleShape2D_b622o")
-
-[node name="Sprite2D2" type="Sprite2D" parent="portao" unique_id=1190117942]
-texture_filter = 1
-position = Vector2(4115, 170)
-scale = Vector2(1.1137732, 1.7362638)
+[node name="Sprite2D" type="Sprite2D" parent="portao" unique_id=1796542289]
+position = Vector2(4126, 201)
 texture = ExtResource("141_sxm1n")
 
-[node name="Lever" type="Area2D" parent="." unique_id=169176415]
-position = Vector2(1979, 72)
-script = ExtResource("143_rs4pu")
-gate_path = NodePath("../portao")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portao" unique_id=2042839962]
+position = Vector2(4130, 201)
+shape = SubResource("RectangleShape2D_b622o")
 
-[node name="Sprite2D" type="Sprite2D" parent="Lever" unique_id=639663266]
-position = Vector2(1422, 156)
+[node name="alavanca" type="Area2D" parent="." unique_id=1733517926]
+process_mode = 4
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="alavanca" unique_id=1167170346]
+position = Vector2(3403, 212)
 texture = ExtResource("144_73ryw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever" unique_id=436488113]
-position = Vector2(1419, 160)
-shape = SubResource("CircleShape2D_b622o")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Lever" unique_id=790426767]
-libraries/ = SubResource("AnimationLibrary_4gga2")
-
-[node name="Label" type="Label" parent="Lever" unique_id=22166801]
-offset_left = 1386.0
-offset_top = 132.0
-offset_right = 1458.0
-offset_bottom = 150.0
-theme_override_font_sizes/font_size = 13
-text = "Pressione E"
-
+[connection signal="body_entered" from="cripta/gatilhocripta" to="cripta" method="_on_gatilhocripta_body_entered"]
 [connection signal="timeout" from="cripta/Timer" to="cripta" method="_on_timer_timeout"]
-[connection signal="body_entered" from="Lever" to="Lever" method="_on_body_entered"]
 
 [editable path="Yume"]
 [editable path="cripta/Zumbi"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rqokdgie5d8b"
-path="res://.godot/imported/nuvem.png-6ac2517a892114c90cfa24726e129190.ctex"
+uid="uid://t2lpn5x6nbxl"
+path="res://.godot/imported/alavancaAberta_Kopi.png-b811131a2ac6519464224e206077dbca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/backgrounds/background_cemetery/nuvem.png"
-dest_files=["res://.godot/imported/nuvem.png-6ac2517a892114c90cfa24726e129190.ctex"]
+source_file="res://sprites/backgrounds/background_cemetery/alavancaAberta_Kopi.png"
+dest_files=["res://.godot/imported/alavancaAberta_Kopi.png-b811131a2ac6519464224e206077dbca.ctex"]
 
 [params]
 
