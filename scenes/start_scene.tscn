@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ci60e1e4wtmh4"]
 
+[ext_resource type="Script" uid="uid://jcuqpc4bs8fy" path="res://scenes/start_scene.gd" id="1_0kdh5"]
 [ext_resource type="Texture2D" uid="uid://clp1kdba8oyyh" path="res://sprites/Start_GameOver/startscenes.png" id="1_cokmr"]
 [ext_resource type="Script" uid="uid://seu3yhgeonb1" path="res://scenes/brilhos.gd" id="2_3tgnh"]
 [ext_resource type="FontFile" uid="uid://bseik7opcbfve" path="res://fonts/PixelifySans-Regular.ttf" id="2_u7rsi"]
@@ -14,13 +15,8 @@ bg_color = Color(0.42745098, 0.1254902, 0.24313726, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i331m"]
 bg_color = Color(0.42745098, 0.1254902, 0.24313726, 1)
 
-[node name="Start_Scene" type="Control" unique_id=581340118]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Start_Scene" type="CanvasLayer" unique_id=1237082439]
+script = ExtResource("1_0kdh5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1458014153]
 texture = ExtResource("1_cokmr")
@@ -30,19 +26,18 @@ centered = false
 script = ExtResource("2_3tgnh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=771523483]
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -72.0
-offset_top = -136.0
+offset_top = -120.0
 offset_right = 83.0
-offset_bottom = -35.0
+offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 14
+theme_override_constants/separation = 3
 alignment = 1
 
 [node name="Start" type="Button" parent="VBoxContainer" unique_id=1552654862]

@@ -10,11 +10,34 @@ func _ready() -> void:
 	# Agora que está tudo carregado, pegamos a referência sem erro
 	caixa_dialogo = $CanvasLayer/DialogScreen as Control
 	
-	# Só dispara o diálogo se o nó realmente foi encontrado
-	if caixa_dialogo:
-		configurar_dialogo_floresta()
+	# 🔥 VERIFICA SE JÁ VIU O DIÁLOGO DA FLORESTA
+	if GameManager.dialogo_visto("Florest"):
+		print("✅ Diálogo da Floresta já foi visto, pulando...")
+		_pular_dialogo()
 	else:
-		print("Erro: Não encontrei o nó DialogScreen dentro de CanvasLayer!")
+		print("🎬 Mostrando diálogo da Floresta...")
+		# Só dispara o diálogo se o nó realmente foi encontrado
+		if caixa_dialogo:
+			configurar_dialogo_floresta()
+		else:
+			print("Erro: Não encontrei o nó DialogScreen dentro de CanvasLayer!")
+
+# 🔥 FUNÇÃO PARA PULAR O DIÁLOGO
+func _pular_dialogo():
+	if caixa_dialogo:
+		caixa_dialogo.visible = false
+	_ativar_jogo()
+
+# 🔥 FUNÇÃO PARA ATIVAR O JOGO (player, portões, etc.)
+func _ativar_jogo():
+	print("🎮 Floresta ativada!")
+	# Coloque aqui o código para ativar o player, portões, etc.
+
+# ============ PAUSA ============
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):  # Tecla ESC
+		GameManager.pausar()
+# ================================
 
 func configurar_dialogo_floresta() -> void:
 	var novas_falas: Dictionary = {
@@ -68,4 +91,15 @@ func configurar_dialogo_floresta() -> void:
 	# Alimenta os dados com segurança
 	caixa_dialogo.data = novas_falas
 	caixa_dialogo.current_dialog_id = 0
+	
+	# 🔥 CONECTA O FIM DO DIÁLOGO (se o sistema tiver sinal)
+	if caixa_dialogo.has_signal("dialogo_terminou"):
+		caixa_dialogo.dialogo_terminou.connect(_dialogo_terminou)
+	
 	caixa_dialogo.show_dialog()
+
+# 🔥 FUNÇÃO CHAMADA QUANDO O DIÁLOGO TERMINA
+func _dialogo_terminou():
+	print("✅ Diálogo da Floresta concluído!")
+	GameManager.completar_dialogo("Florest")
+	_ativar_jogo()

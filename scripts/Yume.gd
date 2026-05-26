@@ -23,6 +23,31 @@ var dodge_speed = 400  # Velocidade mais rápida para desviar
 var original_speed = SPEED
 var original_gravity = GRAVITY
 
+# 🔥 TELA PRETA PARA EFEITO DE MORTE
+var black_screen: ColorRect = null
+
+func _ready():
+	# Cria a tela preta por código
+	_criar_tela_preta()
+
+func _criar_tela_preta():
+	black_screen = ColorRect.new()
+	black_screen.name = "BlackScreen"
+	black_screen.color = Color.BLACK
+	black_screen.z_index = 1000  # 🔥 Z-index bem alto para ficar na frente
+	black_screen.modulate.a = 0  # Começa invisível
+	
+	# 🔥 Configura para cobrir a tela toda independente do tamanho
+	black_screen.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	
+	# Precisa adicionar em um CanvasLayer para garantir que cubra tudo
+	var canvas = CanvasLayer.new()
+	canvas.layer = 100
+	canvas.add_child(black_screen)
+	add_child(canvas)
+	
+	print("✅ Tela preta criada e configurada")
+
 func _physics_process(delta):
 	
 	# --- VERIFICA SE ESTÁ EM DIÁLOGO (QUIZ) ---
@@ -153,8 +178,7 @@ func start_dodge_mode():
 	print("Yume não pode mais desviar")
 
 
-# MORTE
-
+# ============ MORTE COM EFEITO DE TELA PRETA ============
 func morrer():
 	if esta_morta:
 		return
@@ -162,9 +186,23 @@ func morrer():
 	invulneravel = true
 	can_dodge = false
 	velocity = Vector2.ZERO
+	
+	# 🔥 Toca animação de morte
 	anim.play("die")
+	
+	# 🔥 Escurece a tela durante a animação
+	if black_screen:
+		var tween = create_tween()
+		tween.tween_property(black_screen, "modulate:a", 1.0, 0.5)
+	
 	await anim.animation_finished
-	get_tree().reload_current_scene()
+	
+	# 🔥 Aguarda o fade terminar
+	await get_tree().create_timer(0.2).timeout
+	
+	# 🔥 Chama o Game Over
+	GameManager.game_over()
+# ==========================================
 
 
 # DANO
