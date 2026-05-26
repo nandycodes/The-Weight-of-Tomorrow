@@ -1,17 +1,17 @@
-[gd_scene format=4 uid="uid://b6joyn6letg1a"]
+[gd_scene format=4 uid="uid://b7g38hnqp2yge"]
 
-[ext_resource type="Texture2D" uid="uid://dn124e4ebr7vk" path="res://sprites/backgrounds/Cave/Background_cave.png" id="1_mpmta"]
-[ext_resource type="Script" uid="uid://qdy7fjxhbfab" path="res://scenes/fase_boss.gd" id="1_qfl74"]
-[ext_resource type="Texture2D" uid="uid://dj7j0dtw4er2q" path="res://sprites/backgrounds/Cave/terrain.png" id="2_3imr4"]
-[ext_resource type="Texture2D" uid="uid://cj0o3ewtiqyx2" path="res://dialog/assets/yumeFace.png" id="3_611j7"]
-[ext_resource type="Script" uid="uid://bth0ul5fuxfy4" path="res://scenes/boss_dialog.gd" id="3_pfpd0"]
-[ext_resource type="FontFile" uid="uid://bseik7opcbfve" path="res://fonts/PixelifySans-Regular.ttf" id="4_cm6by"]
-[ext_resource type="PackedScene" uid="uid://bs1sxitju24dx" path="res://entities/yume.tscn" id="5_3imr4"]
-[ext_resource type="PackedScene" uid="uid://bywws4nrw3how" path="res://entities/bills_projectile.tscn" id="6_cm6by"]
-[ext_resource type="PackedScene" uid="uid://fglnrordqdp1" path="res://entities/billet.tscn" id="7_pfpd0"]
+[ext_resource type="Script" uid="uid://qdy7fjxhbfab" path="res://scenes/fase_boss.gd" id="1_f5mv8"]
+[ext_resource type="Texture2D" uid="uid://dn124e4ebr7vk" path="res://sprites/backgrounds/Cave/Background_cave.png" id="2_qemcs"]
+[ext_resource type="Texture2D" uid="uid://dj7j0dtw4er2q" path="res://sprites/backgrounds/Cave/terrain.png" id="3_teanf"]
+[ext_resource type="Script" uid="uid://bth0ul5fuxfy4" path="res://scenes/boss_dialog.gd" id="4_8huay"]
+[ext_resource type="Texture2D" uid="uid://cj0o3ewtiqyx2" path="res://dialog/assets/yumeFace.png" id="5_fjomf"]
+[ext_resource type="FontFile" uid="uid://bseik7opcbfve" path="res://fonts/PixelifySans-Regular.ttf" id="6_m2fqd"]
+[ext_resource type="PackedScene" uid="uid://bs1sxitju24dx" path="res://entities/yume.tscn" id="7_2o54h"]
+[ext_resource type="PackedScene" uid="uid://bywws4nrw3how" path="res://entities/bills_projectile.tscn" id="8_jjpdy"]
+[ext_resource type="PackedScene" uid="uid://fglnrordqdp1" path="res://entities/billet.tscn" id="9_l0d3j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pfpd0"]
-texture = ExtResource("2_3imr4")
+texture = ExtResource("3_teanf")
 13:1/0 = 0
 13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.8992939, 8, 3.2374573, 4.3166103, 8, 4.856186, 8, 8, 1.978445, 8)
 14:1/0 = 0
@@ -75,14 +75,14 @@ sources/1 = SubResource("TileSetAtlasSource_pfpd0")
 
 [sub_resource type="LabelSettings" id="LabelSettings_s4twl"]
 line_spacing = 0.0
-font = ExtResource("4_cm6by")
+font = ExtResource("6_m2fqd")
 shadow_color = Color(0, 0, 0, 0.6)
 
 [node name="FaseBoss" type="Node2D" unique_id=1295928983]
-script = ExtResource("1_qfl74")
+script = ExtResource("1_f5mv8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=415164097]
-texture = ExtResource("1_mpmta")
+texture = ExtResource("2_qemcs")
 centered = false
 
 [node name="Tiles" type="Node2D" parent="." unique_id=416515072]
@@ -92,7 +92,7 @@ tile_map_data = PackedByteArray("AAD8/xMAAQARAAEAAAD8/xQAAQARAAIAAAD9/xMAAQAQAAE
 tile_set = SubResource("TileSet_qfl74")
 
 [node name="Boss_Dialog" type="CanvasLayer" parent="." unique_id=894783266]
-script = ExtResource("3_pfpd0")
+script = ExtResource("4_8huay")
 
 [node name="Background" type="ColorRect" parent="Boss_Dialog" unique_id=418342968]
 anchors_preset = 15
@@ -104,7 +104,6 @@ offset_right = -104.0
 offset_bottom = -248.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 color = Color(0, 0, 0, 0.6)
 
 [node name="HContainer" type="HBoxContainer" parent="Boss_Dialog/Background" unique_id=1714327880]
@@ -143,7 +142,7 @@ offset_bottom = 57.032127
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 0.99086875)
-texture = ExtResource("3_611j7")
+texture = ExtResource("5_fjomf")
 expand_mode = 1
 stretch_mode = 5
 
@@ -166,7 +165,7 @@ theme_override_constants/line_separation = 0
 theme_override_constants/shadow_outline_size = 1
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 1
-theme_override_fonts/normal_font = ExtResource("4_cm6by")
+theme_override_fonts/normal_font = ExtResource("6_m2fqd")
 theme_override_font_sizes/normal_font_size = 15
 text = "hhhh"
 
@@ -194,7 +193,7 @@ layout_mode = 2
 [node name="Btn3" type="Button" parent="Boss_Dialog/VBoxContainer" unique_id=1024166975]
 layout_mode = 2
 
-[node name="Yume" parent="." unique_id=1334612167 instance=ExtResource("5_3imr4")]
+[node name="Yume" parent="." unique_id=1334612167 instance=ExtResource("7_2o54h")]
 position = Vector2(96, 272)
 
 [node name="Camera2D" parent="Yume" index="2" unique_id=1373812325]
@@ -203,10 +202,10 @@ enabled = false
 [node name="Camera2D" type="Camera2D" parent="." unique_id=723033696]
 position = Vector2(319.665, 180.99)
 
-[node name="Bills_projectile" parent="." unique_id=1725504182 instance=ExtResource("6_cm6by")]
+[node name="Bills_projectile" parent="." unique_id=1725504182 instance=ExtResource("8_jjpdy")]
 position = Vector2(-112, -112)
 
-[node name="Billet" parent="." unique_id=1189350061 instance=ExtResource("7_pfpd0")]
+[node name="Billet" parent="." unique_id=1189350061 instance=ExtResource("9_l0d3j")]
 position = Vector2(560, 240)
 
 [editable path="Yume"]

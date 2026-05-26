@@ -149,7 +149,7 @@
 [ext_resource type="Texture2D" uid="uid://c7rmdxtfuld6u" path="res://sprites/backgrounds/tilessets/Tilesets/lever_turned_right.png" id="144_ar4gl"]
 [ext_resource type="Texture2D" uid="uid://whmp68muiktm" path="res://sprites/backgrounds/tilessets/Tilesets/gate-1.png.png" id="146_nolii"]
 [ext_resource type="Script" uid="uid://bvuw3edt3hw0k" path="res://scripts/dialogue_trigger.gd" id="147_ar4gl"]
-[ext_resource type="Script" uid="uid://dn1yo6tfci3gs" path="res://scripts/kill_zone.gd" id="149_ua1k5"]
+[ext_resource type="Script" path="res://scripts/kill_zone.gd" id="149_ua1k5"]
 [ext_resource type="PackedScene" uid="uid://c3m31hjnegdom" path="res://scenes/dialog_screen.tscn" id="151_e4btn"]
 [ext_resource type="PackedScene" uid="uid://d1v3nxs2l5oro" path="res://entities/xícara.tscn" id="152_e4btn"]
 [ext_resource type="PackedScene" uid="uid://s0l85u8jv1f5" path="res://entities/coffee.tscn" id="153_lekvo"]
@@ -2237,6 +2237,45 @@ _data = {
 &"lever_on": SubResource("Animation_fdl86")
 }
 
+[sub_resource type="Animation" id="Animation_ylxor"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6iwd7"]
+resource_name = "esconder"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4p0si"]
+_data = {
+&"RESET": SubResource("Animation_ylxor"),
+&"esconder": SubResource("Animation_6iwd7")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4yak"]
+size = Vector2(207, 151)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nolii"]
 size = Vector2(98, 154)
 
@@ -2331,6 +2370,7 @@ texture = ExtResource("146_nolii")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Gate" unique_id=493406257]
 libraries/ = SubResource("AnimationLibrary_ylxor")
+autoplay = &"gate_open"
 
 [node name="Tiles" type="Node2D" parent="." unique_id=1277556461]
 
@@ -2420,8 +2460,8 @@ color = Color(0.99515265, 0.9774154, 0.41021112, 1)
 texture = SubResource("GradientTexture2D_x8ash")
 
 [node name="PointLight2D8" type="PointLight2D" parent="light" unique_id=46711675]
-position = Vector2(3092, 244)
-scale = Vector2(6.2812505, 3.2636716)
+position = Vector2(3170.5, 244)
+scale = Vector2(3.8281252, 3.2636716)
 color = Color(0.99515265, 0.9774154, 0.41021112, 1)
 texture = SubResource("GradientTexture2D_x8ash")
 
@@ -2434,7 +2474,6 @@ texture = SubResource("GradientTexture2D_x8ash")
 [node name="Lever" type="Area2D" parent="." unique_id=1822889796]
 position = Vector2(1979, 72)
 script = ExtResource("142_x8ash")
-gate_path = NodePath("../Gate")
 
 [node name="Sprite2D" type="Sprite2D" parent="Lever" unique_id=837478684]
 position = Vector2(1, -5)
@@ -2455,6 +2494,31 @@ offset_right = 128.0
 offset_bottom = 1.0
 theme_override_font_sizes/font_size = 13
 text = "Pressione E"
+
+[node name="Transicao" type="CanvasLayer" parent="." unique_id=1655649183]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transicao" unique_id=122281379]
+libraries/ = SubResource("AnimationLibrary_4p0si")
+
+[node name="ColorRect" type="ColorRect" parent="Transicao" unique_id=700648489]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -154.0
+offset_right = 2588.0
+offset_bottom = 488.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=53521429]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1523372443]
+position = Vector2(3109.5, 228.5)
+shape = SubResource("RectangleShape2D_h4yak")
 
 [node name="DialogueTrigger" type="Area2D" parent="." unique_id=800988103]
 position = Vector2(2866, 228)
@@ -2494,5 +2558,6 @@ position = Vector2(696, 288)
 
 [connection signal="body_entered" from="GatilhoEscuridao" to="GatilhoEscuridao" method="_on_body_entered"]
 [connection signal="body_entered" from="Lever" to="Lever" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_body_entered"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
