@@ -139,7 +139,7 @@
 [ext_resource type="Texture2D" uid="uid://ddyn1ro7x4u2h" path="res://sprites/characters/Zumbi/walk/sprite36.png" id="109_ggc56"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_667vi"]
-size = Vector2(40, 65.5)
+size = Vector2(80, 82.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_57teo"]
 animations = [{
