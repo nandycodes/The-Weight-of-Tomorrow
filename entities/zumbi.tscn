@@ -579,7 +579,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rct5v"]
-size = Vector2(563, 82)
+size = Vector2(185, 82)
 
 [node name="Zumbi" type="CharacterBody2D" unique_id=892923030]
 texture_filter = 1

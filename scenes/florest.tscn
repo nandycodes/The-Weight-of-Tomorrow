@@ -154,6 +154,7 @@
 [ext_resource type="PackedScene" uid="uid://d1v3nxs2l5oro" path="res://entities/xícara.tscn" id="152_e4btn"]
 [ext_resource type="PackedScene" uid="uid://s0l85u8jv1f5" path="res://entities/coffee.tscn" id="153_lekvo"]
 [ext_resource type="PackedScene" uid="uid://cr4i4v8jy3ahg" path="res://entities/book.tscn" id="154_ylxor"]
+[ext_resource type="PackedScene" uid="uid://cey7t5kh5qpdq" path="res://entities/zumbi.tscn" id="155_6iwd7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4geq8"]
 size = Vector2(635.5, 220)
@@ -2487,7 +2488,6 @@ shape = SubResource("CircleShape2D_48f41")
 libraries/ = SubResource("AnimationLibrary_0fl1t")
 
 [node name="Label" type="Label" parent="Lever" unique_id=67751729]
-visible = false
 offset_left = 53.0
 offset_top = -22.0
 offset_right = 128.0
@@ -2556,8 +2556,17 @@ position = Vector2(1664, 128)
 [node name="Book" parent="Items" unique_id=1250068929 instance=ExtResource("154_ylxor")]
 position = Vector2(696, 288)
 
+[node name="Zumbi" parent="." unique_id=892923030 instance=ExtResource("155_6iwd7")]
+position = Vector2(2711, 270)
+
+[node name="AnimatedSprite2D" parent="Zumbi" index="1" unique_id=88574981]
+animation = &"attack"
+frame = 27
+
 [connection signal="body_entered" from="GatilhoEscuridao" to="GatilhoEscuridao" method="_on_body_entered"]
 [connection signal="body_entered" from="Lever" to="Lever" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="DialogueTrigger" to="DialogueTrigger" method="_on_body_entered"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
+
+[editable path="Zumbi"]
