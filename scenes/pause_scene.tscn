@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bago7fvlm2h70"]
+
+[ext_resource type="Texture2D" uid="uid://b1uljqf7vok6r" path="res://sprites/Start_GameOver/pause.png" id="1_tw400"]
+[ext_resource type="Script" uid="uid://cv48nocwp2jpi" path="res://scenes/brilhos_2.gd" id="2_hoayb"]
+[ext_resource type="FontFile" uid="uid://bseik7opcbfve" path="res://fonts/PixelifySans-Regular.ttf" id="2_kybcv"]
+[ext_resource type="Script" uid="uid://cwglqoxamrxp1" path="res://scenes/brilhos_3.gd" id="3_06n06"]
+[ext_resource type="Script" uid="uid://b63scawturlev" path="res://scenes/botao_personalizado.gd" id="3_hoayb"]
+[ext_resource type="Script" uid="uid://seu3yhgeonb1" path="res://scenes/brilhos.gd" id="5_hoayb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06n06"]
+bg_color = Color(0.42745098, 0.1254902, 0.24313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehgt7"]
+bg_color = Color(0.42745098, 0.1254902, 0.24313726, 1)
+
+[node name="Pause_Scene" type="Control" unique_id=1219310134]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=234592424]
+texture = ExtResource("1_tw400")
+centered = false
+
+[node name="Brilhos2" type="Node2D" parent="Sprite2D" unique_id=1593944173]
+script = ExtResource("2_hoayb")
+
+[node name="Brilhos3" type="Node2D" parent="Sprite2D" unique_id=232576060]
+script = ExtResource("3_06n06")
+
+[node name="Brilhos" type="Node2D" parent="." unique_id=1788085925]
+script = ExtResource("5_hoayb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1993694738]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -232.0
+offset_right = 152.0
+offset_bottom = -40.00058
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Voltar" type="Button" parent="VBoxContainer" unique_id=2738511]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_kybcv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_06n06")
+text = "VOLTAR"
+icon_alignment = 1
+script = ExtResource("3_hoayb")
+
+[node name="Desistir_pause" type="Button" parent="VBoxContainer" unique_id=1003807101]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_kybcv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ehgt7")
+text = "DESISTIR"
+script = ExtResource("3_hoayb")
