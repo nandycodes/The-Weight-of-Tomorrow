@@ -248,82 +248,82 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("31_vbh5p")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("32_vwf41")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("33_qmxlf")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("34_1egdf")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("35_76if4")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("36_dhfju")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("37_v2pom")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("38_rsaf4")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("39_ejm2q")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("40_l2j1d")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("41_66sk3")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("42_d1xof")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("43_650o6")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("44_0gfeb")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("45_0yxmm")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("46_vmll2")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("47_mmado")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("48_mdsxo")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("49_kjjj6")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("50_762n2")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("51_c20rc")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("52_6hw4h")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("53_od2cf")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("54_wus37")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("55_b8ryt")
 }, {
-"duration": 1.0,
+"duration": 0.51,
 "texture": ExtResource("56_w5tcq")
 }],
 "loop": false,
@@ -624,8 +624,10 @@ debug_color = Color(0.99177855, 0.08838246, 0, 0.41960785)
 position = Vector2(-1.9968069, 0.18526042)
 scale = Vector2(0.11272944, 0.10752004)
 sprite_frames = SubResource("SpriteFrames_m4o0s")
-animation = &"idle"
+animation = &"die"
 autoplay = "idle"
+frame = 25
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1373812325 groups=["camera"]]
 limit_left = -180

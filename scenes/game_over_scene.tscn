@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://chs3pm5si7vur"]
 
+[ext_resource type="Script" uid="uid://djo01l4applee" path="res://scenes/game_over_scene.gd" id="1_jy0sy"]
 [ext_resource type="Texture2D" uid="uid://b8mvdseu7rvwc" path="res://sprites/Start_GameOver/GameOver.png" id="1_k0nam"]
 [ext_resource type="FontFile" uid="uid://bseik7opcbfve" path="res://fonts/PixelifySans-Regular.ttf" id="2_weh2h"]
 [ext_resource type="Script" uid="uid://b63scawturlev" path="res://scenes/botao_personalizado.gd" id="3_jy0sy"]
@@ -11,13 +12,8 @@ bg_color = Color(0.42745098, 0.1254902, 0.24313726, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lt2b8"]
 bg_color = Color(0.42745098, 0.1254902, 0.24313726, 1)
 
-[node name="GameOver_Scene" type="Control" unique_id=976283905]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="GameOver_Scene" type="CanvasLayer" unique_id=435116404]
+script = ExtResource("1_jy0sy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=869878456]
 texture = ExtResource("1_k0nam")
@@ -27,20 +23,19 @@ centered = false
 script = ExtResource("4_weh2h")
 
 [node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=429996151]
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -240.0
-offset_top = -80.0
-offset_right = 260.0
-offset_bottom = -21.589996
+offset_left = -232.0
+offset_top = -79.99997
+offset_right = 268.0
+offset_bottom = -21.589966
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.94, 0.94)
-theme_override_constants/separation = 313
+scale = Vector2(0.93, 0.93)
+theme_override_constants/separation = 267
 alignment = 1
 
 [node name="Tentar" type="Button" parent="VBoxContainer" unique_id=2065842109]

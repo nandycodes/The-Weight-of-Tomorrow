@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c3n4jhdx4tfea"]
 
 [ext_resource type="PackedScene" uid="uid://bs1sxitju24dx" path="res://entities/yume.tscn" id="1_6d5gx"]
-[ext_resource type="Script" uid="uid://rq08ou4crjfy" path="res://scenes/cemetery.gd" id="1_q1u81"]
+[ext_resource type="Script" uid="uid://rq08ou4crjfy" path="res://scenes/cemetery.gd" id="1_s315c"]
 [ext_resource type="Texture2D" uid="uid://b8kbrpb5d8jwa" path="res://sprites/backgrounds/background_cemetery/free.png" id="2_m1ouv"]
 [ext_resource type="Script" uid="uid://b66yo746um8gf" path="res://scenes/parallax_background.gd" id="3_7hdpc"]
 [ext_resource type="Texture2D" uid="uid://c41scdqjw2jex" path="res://sprites/backgrounds/background_cemetery/ceu.png" id="3_jrpro"]
